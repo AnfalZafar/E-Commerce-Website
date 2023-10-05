@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Website</title>
+    <link rel="stylesheet" href="css/web.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://kit.fontawesome.com/0962378758.js" crossorigin="anonymous"></script>
+</head>
+<style>
+
+</style>
+
+<body id="body">
+
+    <!-- header -->
+
+    <div class="header">
+
+        <div class="head">
+            <!-- holl sell div  -->
+
+            <div class="sell">
+                <img src="img/sell_section.PNG" alt="">
+            </div>
+
+            <!-- account div -->
+
+            <div class="account">
+                <div class="account_text">
+                    <p>The Holley day sesstion</p>
+                </div>
+                <nav class="account_nav">
+                    <ul class="account_ul" id="account">
+                        <li>
+                            <p>My Account</p>
+                            <i class="fa-solid fa-caret-down"></i>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="nav_drop" id="nav_drop">
+                    <ul class="drop_ul">
+                        <li><a href="">Account</a></li>
+                        <li><a href="">Sign Out</a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <!-- card -->
+
+            <div class="cart">
+
+                <div class="cart_logo">
+                    <a href=""><img src="img/logo-removebg-preview (2).png" alt=""></a>
+                </div>
+
+                <div class="nav_search">
+
+                    <div class="nav_search_container">
+                        <input type="search" placeholder="Search Your Item" id="search_input">
+                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+
+                    <div class="search_result" id="search_result">
+                        <div class="search_croos">
+                            <i class="fa-solid fa-xmark" id="search_croos"></i>
+                        </div>
+
+                        <div class="search_result_form">
+
+                            <div class="search_result_text">
+
+                                <div class="search_img_name">
+                                    <img src="img/cofa1.jpg" alt="">
+                                    <div class="search_result_text_name">
+                                        <h3>Cofa</h3>
+                                    </div>
+                                </div>
+
+                                <div class="price">
+                                    <p>$400</p>
+                                </div>
+
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+                <div class="my_cart">
+                    <ul class="my_cart_li">
+                        <span>5</span>
+                        <li class="bag_li"><i class="fa-solid fa-sack-dollar"></i></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- main nav -->
+
+            <div class="main_navbar">
+                <div class="main_nav" id="main_nav">
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Products</a></li>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">Blog</a></li>
+
+                    </ul>
+                </div>
+                <div class="burger">
+                    <i class="fa-solid fa-bars" id="bar"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="slider">
+
+            <div class="slide">
+                <img src="img/header slider1.png" alt="">
+                <div class="slide_text">
+                    <h1>Hot Right Now</h1>
+                    <p>Summer White and bridge tropical prints capture a brasey.</p>
+                    <button>Shop Now</button>
+                </div>
+            </div>
+
+            <div class="slide">
+                <img src="img/header slider4.png" alt="">
+                <div class="slide_text">
+                    <h1>Hot Right Now</h1>
+                    <p>Summer White and bridge tropical prints capture a brasey.</p>
+                    <button>Shop Now</button>
+                </div>
+            </div>
+
+
+            <div class="slide">
+                <img src="img/header slider2.png" alt="">
+                <div class="slide_text">
+                    <h1>Hot Right Now</h1>
+                    <p>Summer White and bridge tropical prints capture a brasey.</p>
+                    <button>Shop Now</button>
+                </div>
+            </div>
+
+
+            <span class="arrow prev" onclick="change(-1)">&#10094;</span>
+            <span class="arrow next" onclick="change(1)">&#10095;</span>
+
+
+        </div>
+
+    </div>
+
+    <!-- our security -->
+
+    <div class="security">
+
+        <div class="secu_card">
+            <div class="secu_logo">
+                <i class="fa-solid fa-money-bill" style="color: #ff9600;"></i>
+            </div>
+            <div class="secu_text">
+                <h3>FREE DELIVERY</h3>
+                <p>JUST GET AMOUNT</p>
+            </div>
+        </div>
+
+        <div class="secu_card">
+            <div class="secu_logo">
+                <i class="fa-solid fa-shield-halved" style="color: #ff9600;"></i>
+            </div>
+            <div class="secu_text">
+                <h3>ORDERED PROTECTION</h3>
+                <p>SECURE INFORMATION</p>
+            </div>
+        </div>
+
+        <div class="secu_card">
+            <div class="secu_logo">
+                <i class="fa-solid fa-gift" style="color: #ff9600;"></i>
+            </div>
+            <div class="secu_text">
+                <h3>PROMOTION GIFT</h3>
+                <p>SPECTIAL OFFERS</p>
+            </div>
+        </div>
+
+        <div class="secu_card">
+            <div class="secu_logo">
+                <i class="fa-solid fa-film" style="color: #ff9600;"></i>
+            </div>
+            <div class="secu_text">
+                <h3>MONEY BACK</h3>
+                <p>RETURN IN 30 DAYS</p>
+            </div>
+        </div>
+
+        <div class="secu_card">
+            <div class="secu_logo">
+                <i class="fa-solid fa-globe" style="color: #ff9600;"></i>
+            </div>
+            <div class="secu_text">
+                <h3>BIGG SAVING</h3>
+                <p>WEEKEN SALES</p>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- our product -->
+
+    <div class="our_product">
+        <div class="product_head">
+            <h2>OUR PRODUCTS</h2>
+        </div>
+        <div class="container_p_card">
+
+
+            <a href="" class="p_card">
+                <img src="img/first cate watch.jpg" alt="">
+                <div class="p_card_text">
+                    <h3>WATCHES</h3>
+                </div>
+            </a>
+
+            <a href="" class="p_card">
+                <img src="img/first cate headphone.jpg" alt="">
+                <div class="p_card_text">
+                    <h3>HEADS PHONES</h3>
+                </div>
+            </a>
+
+            <a href="" class="p_card">
+                <img src="img/first cate shoes 1.png" style="padding-bottom: 2rem;background: rgb(247,247,247);" alt="">
+                <div class="p_card_text">
+                    <h3>SHOES</h3>
+                </div>
+            </a>
+
+            <a href="" class="p_card">
+                <img src="img/first cate tshirt.jpg" alt="">
+                <div class="p_card_text">
+                    <h3>T-SHIRTS</h3>
+                </div>
+            </a>
+
+
+        </div>
+    </div>
+
+    <!-- Promotion -->
+
+    <div class="our_promotion">
+        <div class="promotion_head">
+            <h2>OUR PROMOTION</h2>
+        </div>
+        <div class="promotion_container">
+
+            <!-- card 1 -->
+            <div class="card1_head">
+
+                <div class="card1_head_1">
+                    <div class="card1_head_text">
+                        <h2>GET UP TO 60%</h2>
+                        <p>ON SUMMER VICATION</p>
+                    </div>
+                </div>
+
+                <div class="card1_head_2">
+                    <div class="card1_head_2_text">
+                        <h2>GET UP TO 40%</h2>
+                        <p>ON WINTER VACATION</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- card 2 -->
+
+            <div class="card2">
+                <div class="card2_text">
+                    <p>GET THE T-SHIRT</p>
+                    <div class="card2_text_price">
+                        <del>$200</del>
+                        <p>$150</p>
+                    </div>
+                </div>
+                <div class="card2_img">
+                    <img src="img/promotion2.webp" alt="">
+                </div>
+            </div>
+
+            <!-- card 3 -->
+
+            <div class="card3">
+                <div class="card2_text">
+                    <p>GET THE T-SHIRT</p>
+                    <div class="card2_text_price">
+                        <del>$200</del>
+                        <p>$150</p>
+                    </div>
+                </div>
+                <div class="card2_img">
+                    <img src="img/promotion3.webp" alt="">
+                </div>
+            </div>
+
+            <div class="card4">
+                <div class="card4_text">
+                    <h2>GET UP TO 40%</h2>
+                    <p>ON WINTER VACATION</p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+<!-- feature product -->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="js/web.js"></script>
+
+
+
+</body>
+
+</html>
