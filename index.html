@@ -10,7 +10,27 @@
     <script src="https://kit.fontawesome.com/0962378758.js" crossorigin="anonymous"></script>
 </head>
 <style>
+    .swiper {
+        width: 100%;
+        height: 100%;
+        z-index: -11;
+    }
 
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 </style>
 
 <body id="body">
@@ -98,11 +118,35 @@
                 </div>
 
                 <div class="my_cart">
-                    <ul class="my_cart_li">
+                    <ul class="my_cart_li" id="cart_click">
                         <span>5</span>
                         <li class="bag_li"><i class="fa-solid fa-sack-dollar"></i></li>
                     </ul>
                 </div>
+
+                <!-- mycart -->
+
+                <div class="mycart" id="cart">
+                    <div class="cart_head">
+                        <h3>MY CART</h3>
+                    </div>
+                    <div class="cart_container">
+                        <div class="cart_item">
+                            <img src="img/watch1.webp" alt="">
+                            <div class="cart_item_text">
+                                <h4>Watch</h4>
+                                <p>$50</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart_button">
+                        <button>CHEAK OUT</button>
+                        <button>VIEW CART</button>
+
+                    </div>
+                </div>
+
+
 
             </div>
 
@@ -126,39 +170,38 @@
 
         </div>
 
-        <div class="slider">
-
-            <div class="slide">
-                <img src="img/header slider1.png" alt="">
-                <div class="slide_text">
-                    <h1>Hot Right Now</h1>
-                    <p>Summer White and bridge tropical prints capture a brasey.</p>
-                    <button>Shop Now</button>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="img/header slider1.png" alt="">
+                    <div class="slide_text">
+                        <h1>Hot Right Now</h1>
+                        <p>Summer White and bridge tropical prints capture a brasey.</p>
+                        <button>Shop Now</button>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <img src="img/header slider4.png" alt="">
-                <div class="slide_text">
-                    <h1>Hot Right Now</h1>
-                    <p>Summer White and bridge tropical prints capture a brasey.</p>
-                    <button>Shop Now</button>
+                <div class="swiper-slide">
+                    <img src="img/header slider4.png" alt="">
+                    <div class="slide_text">
+                        <h1>Hot Right Now</h1>
+                        <p>Summer White and bridge tropical prints capture a brasey.</p>
+                        <button>Shop Now</button>
+                    </div>
                 </div>
-            </div>
 
 
-            <div class="slide">
-                <img src="img/header slider2.png" alt="">
-                <div class="slide_text">
-                    <h1>Hot Right Now</h1>
-                    <p>Summer White and bridge tropical prints capture a brasey.</p>
-                    <button>Shop Now</button>
+                <div class="swiper-slide">
+                    <img src="img/header slider2.png" alt="">
+                    <div class="slide_text">
+                        <h1>Hot Right Now</h1>
+                        <p>Summer White and bridge tropical prints capture a brasey.</p>
+                        <button>Shop Now</button>
+                    </div>
                 </div>
+
             </div>
-
-
-            <span class="arrow prev" onclick="change(-1)">&#10094;</span>
-            <span class="arrow next" onclick="change(1)">&#10095;</span>
+            <div class="swiper-pagination"></div>
 
 
         </div>
@@ -246,7 +289,8 @@
             </a>
 
             <a href="" class="p_card">
-                <img src="img/first_cate_shoes_1-removebg-preview.png" style="padding-bottom: 2rem;background: rgb(247,247,247);" alt="">
+                <img src="img/first_cate_shoes_1-removebg-preview.png"
+                    style="padding-bottom: 2rem;background: rgb(247,247,247);" alt="">
                 <div class="p_card_text">
                     <h3>SHOES</h3>
                 </div>
@@ -372,6 +416,205 @@
     </div>
 
     <!-- Sales -->
+
+    <div class="sales">
+        <div class="sales_blur">
+            <img class="sales_img" src="img/holl_sell_head_img.avif" alt="">
+
+            <div class="sales_head">
+                <h1>HAPPEY SLAES</h1>
+            </div>
+
+            <div class="sales_card">
+                <img src="img/holl_sell_shirt 1.png" alt="">
+                <div class="sales_text">
+                    <h2>T-Shirt</h2>
+                    <div class="sales_text_price">
+                        <del>$60</del>
+                        <h3>$50</h3>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- BRANDS -->
+
+    <div class="brands">
+        <div class="brands_head">
+            <div class="brands_card">
+                <img src="img/brands_1.png" alt="">
+            </div>
+            <div class="brands_card">
+                <img src="img/brands_1.png" alt="">
+            </div>
+            <div class="brands_card">
+                <img src="img/brands_1.png" alt="">
+            </div>
+            <div class="brands_card">
+                <img src="img/brands_1.png" alt="">
+            </div>
+            <div class="brands_card">
+                <img src="img/brands_5.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Blogs -->
+
+    <div class="blogs">
+        <div class="blogs_head">
+            <h2>LATEST BLOGS</h2>
+        </div>
+        <div class="blogs_card_head">
+
+            <div class="blogs_card">
+                <img src="img/block1.jpg" alt="">
+                <div class="blogs_card_text">
+                    <h3>3 AUGUST 2019</h3>
+                    <P>by:Anfal Zafar</P>
+                </div>
+            </div>
+
+            <div class="blogs_card">
+                <img src="img/block2.jpg" alt="">
+                <div class="blogs_card_text">
+                    <h3>15 SETEMBER 2020</h3>
+                    <P>by:Anfal Zafar</P>
+                </div>
+            </div>
+
+            <div class="blogs_card">
+                <img src="img/block3.jpg" alt="">
+                <div class="blogs_card_text">
+                    <h3>10 JANUARI 2021</h3>
+                    <P>by:Anfal Zafar</P>
+                </div>
+            </div>
+
+            <div class="blogs_card">
+                <img src="img/block4.jpg" alt="">
+                <div class="blogs_card_text">
+                    <h3>28 JULY 2023</h3>
+                    <P>by:Anfal Zafar</P>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- footer -->
+
+    <footer>
+        <div class="footer_container">
+
+            <div class="footer_1">
+                <img src="img/logo-removebg-preview (2).png" alt="">
+                <div class="footer_1_text">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque, dolor.</p>
+                </div>
+            </div>
+
+            <div class="footer_2">
+                <div class="footer_2_head">
+                    <h2>CONTACT US</h2>
+                </div>
+                <ul class="footer_2_ul">
+
+                    <li>
+                        <a href="">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Pakistan:Karachi Ittehad Town Karachi
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <i class="fa-solid fa-phone"></i>
+                            +92 30468777777
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <i class="fa-solid fa-envelope"></i>
+                            OnlineShop@gmail.com
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <i class="fa-solid fa-clock"></i>
+                            Opening Time 7:00AM to 10:30PM
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="footer_4">
+                <div class="footer_4_head">
+                    <h2>CATEGARES</h2>
+                </div>
+                <ul class="footer_4_ul">
+
+                    <li>
+                        <a href="">
+                            HOME
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            PRODUCT
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            ABOUT US
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            CONTACT US
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            BLOGS
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="footer_3">
+                <div class="footer_3_text">
+                    <h2>ABOUT US</h2>
+                </div>
+
+                <div class="footer_3_descript">
+                    <p>
+                        At OnlineShoping, we believe that fashion is not just about clothing; it's a statement, an
+                        expression of your unique style and personality. Our mission is to empower you to look and feel
+                        your best every day by offering a curated selection of the latest trends in clothing, shoes,
+                        watches, and t-shirts.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>

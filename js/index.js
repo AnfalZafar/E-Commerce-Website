@@ -1,35 +1,35 @@
 // for slider
 
-let a = 0;
-let time = 3000;
+// let a = 0;
+// let time = 3000;
 
 
-function change(c){
-    a = a + c;
-slider(a);
+// function change(c){
+//     a = a + c;
+// slider(a);
 
-}
+// }
 
-slider(a);
+// slider(a);
 
-function slider(e){
-    let slide = document.getElementsByClassName("slide");
+// function slider(e){
+//     let slide = document.getElementsByClassName("slide");
 
-if(e == slide.length){
-    e = 0;
-    a = 0;
-}
-if(e < 0){
-    e = slide.length-1;
-    a = slide.length-1;
-}
-for(z of slide){
-    z.style.display = "none";
-}
+// if(e == slide.length){
+//     e = 0;
+//     a = 0;
+// }
+// if(e < 0){
+//     e = slide.length-1;
+//     a = slide.length-1;
+// }
+// for(z of slide){
+//     z.style.display = "none";
+// }
 
-    console.log(slide[e]);
-    slide[e].style.display = "block";
-}
+//     console.log(slide[e]);
+//     slide[e].style.display = "block";
+// }
 
 // for drop down
 
@@ -58,6 +58,16 @@ search_croos.addEventListener("click" , ()=>{
 });
 
 
+ // my cart
+
+ let cart_click = document.getElementById("cart_click"),
+ cart = document.getElementById("cart");
+ 
+ cart_click.addEventListener("click" , (e)=> {
+   e.preventDefault();
+   cart.classList.toggle("show_cart");
+ });
+
 // responsive main navbar
 
 let burger = document.getElementById("bar"),
@@ -66,3 +76,23 @@ main_nav = document.getElementById("main_nav");
 burger.addEventListener("click" , ()=>{
     main_nav.classList.toggle("show_main_nav")
 })
+
+
+var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+ 
