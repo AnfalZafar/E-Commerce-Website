@@ -1,38 +1,3 @@
-// for slider
-
-// let a = 0;
-// let time = 3000;
-
-
-// function change(c){
-//     a = a + c;
-// slider(a);
-
-// }
-
-// slider(a);
-
-// function slider(e){
-//     let slide = document.getElementsByClassName("slide");
-
-// if(e == slide.length){
-//     e = 0;
-//     a = 0;
-// }
-// if(e < 0){
-//     e = slide.length-1;
-//     a = slide.length-1;
-// }
-// for(z of slide){
-//     z.style.display = "none";
-// }
-
-//     console.log(slide[e]);
-//     slide[e].style.display = "block";
-// }
-
-// for drop down
-
 let account_text = document.getElementById("account"),
 drop_down = document.getElementById("nav_drop");
 
@@ -77,26 +42,7 @@ burger.addEventListener("click" , ()=>{
     main_nav.classList.toggle("show_main_nav")
 })
 
-
-var swiper = new Swiper(".mySwiper", {
-    spaceBetween: 30,
-    centeredSlides: true,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-
- 
-  // scroll top
+// scroll top
 
 let scroll_btn = document.getElementById("scroll_top");
 
