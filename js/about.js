@@ -58,16 +58,12 @@ function scrollFunction() {
 
 function topFunction() {
     document.body.scrollTop = 0;
-    document.body.style.transition = "2s";
     document.documentElement.scrollTop = 0;
-    document.documentElement.style.transition = "2s";
 
   }
 
 
-  
   // responsive footer
-  
   let footer2 = document.getElementById("footer_2"),
 footer3 = document.getElementById("footer_3"),
 footer4 = document.getElementById("footer_4"),
@@ -95,4 +91,5 @@ footer4.addEventListener("click" , ()=>{
     ul_2.classList.remove('ul2_open');
 
 })
+
 

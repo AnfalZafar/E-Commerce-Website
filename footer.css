@@ -1,0 +1,223 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.footer{
+    width: 100%;
+}
+.footer_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer_1{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.footer1_head{
+    margin-bottom: 1rem;
+}
+.footer_2{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.footer_2 .footer2_ul{
+    list-style: none;
+}
+.footer_2 .footer2_ul li{
+    padding: 10px 0px;
+}
+.footer_3{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.footer3_ul{
+    list-style: none;
+}
+.footer3_ul li {
+    padding: 5px 0px;
+}
+.footer3_ul li a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+}
+.footer_4{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.footer_4 .footer4_ul{
+    list-style: none;
+}
+.footer4_ul li {
+    padding: 10px 0px;
+}
+
+
+
+
+
+
+.main_footer{
+    width: 100%;
+    display: none;
+}
+
+@media(max-width:780px){
+.main_footer{
+    width: 100%;
+    display: block;
+}
+.mainfooter_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.mainfooter_2{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+
+}
+.mainfooter2_head{
+    width: 70%;
+    margin-bottom: 1rem;
+    background: rgb(197, 194, 194);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 1rem;
+}
+.mainfooter2_head i{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.mainfooter_2 .mainfooter2_ul{
+    list-style: none;
+    width: 70%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.mainfooter2_ul.ul2_open{
+    list-style: none;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.mainfooter_2 .mainfooter2_ul li{
+    padding: 10px 0px;
+}
+
+.mainfooter_3{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+.mainfooter3_head{
+    width: 70%;
+    margin-bottom: 1rem;
+    background: rgb(197, 194, 194);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 1rem;
+}
+.mainfooter3_head i{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.mainfooter3_ul{
+    list-style: none;
+    width: 70%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.mainfooter3_ul.ul3_open{
+    list-style: none;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.mainfooter3_ul li {
+    padding: 10px 0px;
+}
+.mainfooter3_ul li a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+}
+.mainfooter_4{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+.mainfooter4_head{
+    width: 70%;
+    margin-bottom: 1rem;
+    background: rgb(197, 194, 194);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 1rem;
+}
+.mainfooter4_head i{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.mainfooter4_ul{
+    list-style: none;
+    width: 70%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.mainfooter4_ul.ul4_open{
+    list-style: none;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.mainfooter4_ul li {
+    padding: 10px 0px;
+}
+
+
+}
