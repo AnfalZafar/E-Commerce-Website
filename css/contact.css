@@ -499,7 +499,6 @@
 .contact_form .message {
     width: 50%;
     height: 90px;
-    background: crimson;
     overflow: hidden;
 }
 
@@ -599,7 +598,7 @@ footer {
 
 .scroll_top {
     position: fixed;
-    top: 30%;
+    top: 80%;
     right: 25px;
     width: 35px;
     height: 35px;
