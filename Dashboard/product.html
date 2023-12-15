@@ -4,30 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="dashcss/dash.css">
+    <title>Product Dashboard</title>
+    <link rel="stylesheet" href="dashcss/product.css">
     <script src="https://kit.fontawesome.com/0962378758.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load("current", { packages: ["corechart"] });
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Total Money', 0.3],
-                ['Users', 1.7],
-                ['Money Per Day', 18]
-            ]);
-
-            var options = {
-                title: 'My Earns',
-                is3D: true,
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-            chart.draw(data, options);
-        }
-    </script>
 
 <body>
 
@@ -46,7 +25,7 @@
 
                 <div class="sidebar_main">
                     <ul class="sidebar_main_ul">
-                        <li class="sidebar_main_ul_li" style="background: rgba(255,171,51);">
+                        <li class="sidebar_main_ul_li">
                             <i class="fa-solid fa-grid"></i>
                             <a href="dash.html">Dashboard</a>
                         </li>
@@ -54,7 +33,7 @@
                             <i class="fa-sharp fa-solid fa-grid-round-2"></i>
                             <a href="pament.html">Paments</a>
                         </li>
-                        <li class="sidebar_main_ul_li">
+                        <li class="sidebar_main_ul_li" style="background: rgba(255,171,51);">
                             <i class="fa-sharp fa-solid fa-grid-round-2"></i>
                             <a href="product.html">Products</a>
                         </li>
@@ -107,7 +86,7 @@
                 <div class="nav">
                     <div class="profile" id="profile">
                         <h3>AnfalZafar</h3>
-                        <img src="../img/manimg.webp" alt="">
+                        <img src="../../img/manimg.webp" alt="">
                     </div>
                     <div class="pro_detail" id="profile_detail">
                         <ul class="pro_ul">
@@ -125,27 +104,39 @@
 
             <div class="main_container">
 
-                <!-- head cards -->
-                <div class="head_card_container">
-
-                    <div class="head_cards">
-                        <h3>TOTAL MONEY</h3>
-                        <h5>$1000</h5>
-                    </div>
-
-                    <div class="head_cards">
-                        <h3>TOTAL USERS</h3>
-                        <h5>$1500</h5>
-                    </div>
-
+                <div class="main_container_head">
+                    <h2>PRODUCTS</h2>
                 </div>
-                <!-- head cards end -->
 
-                <!-- chart -->
-                <div class="chart">
-                    <div id="piechart_3d" class="peichart" ></div>
-
+                <div class="main_container_add">
+                    <button id="add_product">ADD PRODUCTS</button>
                 </div>
+
+                <!-- our product -->
+
+                <div class="our_product">
+                    <div class="container_p_card">
+
+
+                        <div class="p_card">
+                            <img src="../img/t_shirt1.jpg" alt="">
+                            <div class="p_card_text">
+                                <h3>T-SHIRT</h3>
+                                <div class="p_card_button">
+                                    <a href="" style="background: red;">Delete</a>
+                                    <a href="" style="background: rgb(255 , 150 ,0);">Update</a>
+
+                                </div>
+                               
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
             </div>
 
             <!-- main text end -->
@@ -159,10 +150,22 @@
 
 
 
-    </div>
+   <div class="product_form" id="product_form">
+    <form>
+        <div class="name">
+            <input type="text" placeholder="Enter Your Product Name">
+        </div>
+        <div class="name">
+            <input type="file">
+        </div>
+        <div class="form_btn">
+            <button>Add</button>
+        </div>
+    </form>
+   </div>
 
 
-    <script src="dashjs/dash.js"></script>
+    <script src="dashjs/product.js"></script>
 
 
 </body>

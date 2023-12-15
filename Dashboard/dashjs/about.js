@@ -7,7 +7,6 @@ sidebar_main_ul_ul.addEventListener("click" , ()=>{
 })
 
 
-
 let bar = document.getElementById("bar"),
 sidebar = document.getElementById("sidebar");
 
@@ -20,4 +19,12 @@ profile_detail = document.getElementById("profile_detail");
 
 profile.addEventListener("click" , ()=> {
     profile_detail.classList.toggle("see_profile");
+})
+
+
+let add_about = document.getElementById("add_about"),
+about_form = document.getElementById("about_form");
+
+add_about.addEventListener("click" , function() {
+   about_form.classList.toggle("open_modal");
 })

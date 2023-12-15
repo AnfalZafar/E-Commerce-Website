@@ -21,3 +21,13 @@ profile_detail = document.getElementById("profile_detail");
 profile.addEventListener("click" , ()=> {
     profile_detail.classList.toggle("see_profile");
 })
+
+
+// add form
+
+let add_product = document.getElementById("add_product"),
+product_form = document.getElementById("product_form");
+
+add_product.addEventListener("click" , function() {
+   product_form.classList.toggle("open_modal");
+})
