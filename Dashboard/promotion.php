@@ -27,39 +27,39 @@
                     <ul class="sidebar_main_ul">
                         <li class="sidebar_main_ul_li">
                             <i class="fa-solid fa-grid"></i>
-                            <a href="dash.html">Dashboard</a>
+                            <a href="dash.php">Dashboard</a>
                         </li>
                         <li class="sidebar_main_ul_li">
                             <i class="fa-sharp fa-solid fa-grid-round-2"></i>
-                            <a href="pament.html">Paments</a>
+                            <a href="pament.php">Paments</a>
                         </li>
                         <li class="sidebar_main_ul_li">
                             <i class="fa-sharp fa-solid fa-grid-round-2"></i>
-                            <a href="product.html">Products</a>
+                            <a href="product.php">Products</a>
                         </li>
                         <li class="sidebar_main_ul_li">
                             <i class="fa-sharp fa-solid fa-grid-round-2"></i>
-                            <a href="all_product.html"> All Products</a>
+                            <a href="all_product.php"> All Products</a>
                         </li>
                         <li class="sidebar_main_ul_li">
                             <i class="fa-sharp fa-solid fa-grid-round-2"></i>
-                            <a href="about.html">About</a>
+                            <a href="about.php">About</a>
                         </li>
                         <li class="sidebar_main_ul_li">
                             <i class="fa-solid fa-grid"></i>
-                            <a href="contact.html">Contact</a>
+                            <a href="contact.php">Contact</a>
                         </li>
                         <ul class="sidebar_main_ul_ul" id="side_bar_head">
                             <li class="sidebar_main_ul_ul_li" style="background: rgba(255,171,51);">Others</li>
                             <div class="sidebar_main_ul_others_content" id="side_bar_content">
                                 <ul class="sidebar_main_ul_others_content_ul">
-                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="sale.html">Sales</a></li>
-                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="blog.html">Blogs</a></li>
-                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="feature.html">Feature
+                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="sale.php">Sales</a></li>
+                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="blog.php">Blogs</a></li>
+                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="feature.php">Feature
                                             Products</a>
                                     </li>
                                     <li class="sidebar_main_ul_others_content_ul_li"><a
-                                            href="promotion.html">Promotion</a></li>
+                                            href="promotion.php">Promotion</a></li>
 
                                 </ul>
                             </div>

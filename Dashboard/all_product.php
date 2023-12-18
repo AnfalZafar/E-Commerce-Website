@@ -1,3 +1,32 @@
+
+<?php
+
+include("../connection.php");
+
+if(isset($_POST["p_add"])) {
+
+    $name = $_POST["p_name"];
+    $title = $_POST["p_title"];
+    $img_type = $_FILES["p_img"]["type"];
+    if(strtolower($img_type) == "image/png" || strtolower($img_type) == "image/jpg" || strtolower($img_type) == "image/jpeg") {
+        $img_name = $_FILES["p_img"]["name"];
+        $target = "../img/" .basename($img_name);
+        if(move_uploaded_file($_FILES["p_img"]["tmp_name"] , $target)) {
+            $insert = "INSERT INTO `all_products`( `a_p_name`, `a_p_img`,`a_p_descript`) VALUES ('$name','$img_name','$title')";
+            $run = mysqli_query($connect, $insert);
+            if ($run) {
+                echo "
+        <script>
+        alert('Submit Successfuley');
+        </script>
+        ";
+            }
+        }
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +34,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Dashboard</title>
-    <link rel="stylesheet" href="dashcss/product.css">
+    <link rel="stylesheet" href="dashcss/all_product.css">
     <script src="https://kit.fontawesome.com/0962378758.js" crossorigin="anonymous"></script>
 
 <body>
@@ -27,39 +56,39 @@
                     <ul class="sidebar_main_ul">
                         <li class="sidebar_main_ul_li">
                             <i class="fa-solid fa-grid"></i>
-                            <a href="dash.html">Dashboard</a>
+                            <a href="dash.php">Dashboard</a>
                         </li>
                         <li class="sidebar_main_ul_li">
                             <i class="fa-sharp fa-solid fa-grid-round-2"></i>
-                            <a href="pament.html">Paments</a>
+                            <a href="pament.php">Paments</a>
+                        </li>
+                        <li class="sidebar_main_ul_li">
+                            <i class="fa-sharp fa-solid fa-grid-round-2"></i>
+                            <a href="product.php">Products</a>
                         </li>
                         <li class="sidebar_main_ul_li" style="background: rgba(255,171,51);">
                             <i class="fa-sharp fa-solid fa-grid-round-2"></i>
-                            <a href="product.html">Products</a>
+                            <a href="all_product.php">All Products</a>
                         </li>
                         <li class="sidebar_main_ul_li">
                             <i class="fa-sharp fa-solid fa-grid-round-2"></i>
-                            <a href="all_product.html"> All Products</a>
-                        </li>
-                        <li class="sidebar_main_ul_li">
-                            <i class="fa-sharp fa-solid fa-grid-round-2"></i>
-                            <a href="about.html">About</a>
+                            <a href="about.php">About</a>
                         </li>
                         <li class="sidebar_main_ul_li">
                             <i class="fa-solid fa-grid"></i>
-                            <a href="contact.html">Contact</a>
+                            <a href="contact.php">Contact</a>
                         </li>
                         <ul class="sidebar_main_ul_ul" id="side_bar_head">
                             <li class="sidebar_main_ul_ul_li">Others</li>
                             <div class="sidebar_main_ul_others_content" id="side_bar_content">
                                 <ul class="sidebar_main_ul_others_content_ul">
-                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="sale.html">Sales</a></li>
-                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="blog.html">Blogs</a></li>
-                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="feature.html">Feature
+                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="sale.php">Sales</a></li>
+                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="blog.php">Blogs</a></li>
+                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="feature.php">Feature
                                             Products</a>
                                     </li>
                                     <li class="sidebar_main_ul_others_content_ul_li"><a
-                                            href="promotion.html">Promotion</a></li>
+                                            href="promotion.php">Promotion</a></li>
 
                                 </ul>
                             </div>
@@ -117,19 +146,34 @@
                 <div class="our_product">
                     <div class="container_p_card">
 
+                    <?php
 
+$select_tabel = "";
+$run_table = mysqli_query($connect , $select_tabel);
+$fetchs = mysqli_fetch_array($run_table);
+$_SESSION["id"] = $fetchs["product_id"];
+$select = "SELECT * FROM `all_products` WHERE ";
+$run = mysqli_query($connect , $select);
+while($row = mysqli_fetch_array($run)){?>
                         <div class="p_card">
-                            <img src="../img/t_shirt1.jpg" alt="">
+                            <img src="../img/<?php echo $row["a_p_img"]?>" alt="">
                             <div class="p_card_text">
-                                <h3>T-SHIRT</h3>
+                                <h3><?php echo $row["a_p_name"]?></h3>
+                            <p><?php echo $row["a_p_descript"]?>
+                                </p>
                                 <div class="p_card_button">
-                                    <a href="" style="background: red;">Delete</a>
-                                    <a href="" style="background: rgb(255 , 150 ,0);">Update</a>
+                                    <a href="all_product_delete.php?delete=<?php echo $row["a_p_id"]?>" style="background: red;">Delete</a>
+                                    <a href="all_product_update.php?update=<?php echo $row["a_p_id"]?>" style="background: rgb(255 , 150 ,0);">Update</a>
 
                                 </div>
                                
                             </div>
                         </div>
+                        <?php
+}
+
+?>
+     
 
 
                     </div>
@@ -151,21 +195,24 @@
 
 
    <div class="product_form" id="product_form">
-    <form>
+    <form method="post" enctype="multipart/form-data" >
         <div class="name">
-            <input type="text" placeholder="Enter Your Product Name">
+            <input type="text" name="p_name" placeholder="Enter Your Product Name">
         </div>
         <div class="name">
-            <input type="file">
+            <input type="text" name="p_title" placeholder="Enter Your Product Title">
+        </div>
+        <div class="name">
+            <input type="file" name="p_img">
         </div>
         <div class="form_btn">
-            <button>Add</button>
+            <button name="p_add">Add</button>
         </div>
     </form>
    </div>
 
 
-    <script src="dashjs/product.js"></script>
+    <script src="dashjs/all_product.js"></script>
 
 
 </body>

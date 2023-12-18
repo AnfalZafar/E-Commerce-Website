@@ -5,8 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="dashcss/blog.css">
+    <link rel="stylesheet" href="dashcss/dash.css">
     <script src="https://kit.fontawesome.com/0962378758.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Total Money', 0.3],
+                ['Users', 1.7],
+                ['Money Per Day', 18]
+            ]);
+
+            var options = {
+                title: 'My Earns',
+                is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            chart.draw(data, options);
+        }
+    </script>
 
 <body>
 
@@ -25,41 +46,41 @@
 
                 <div class="sidebar_main">
                     <ul class="sidebar_main_ul">
+                        <li class="sidebar_main_ul_li" style="background: rgba(255,171,51);">
+                            <i class="fa-solid fa-grid"></i>
+                            <a href="dash.php">Dashboard</a>
+                        </li>
+                        <li class="sidebar_main_ul_li">
+                            <i class="fa-sharp fa-solid fa-grid-round-2"></i>
+                            <a href="pament.php">Paments</a>
+                        </li>
+                        <li class="sidebar_main_ul_li">
+                            <i class="fa-sharp fa-solid fa-grid-round-2"></i>
+                            <a href="product.php">Products</a>
+                        </li>
+                        <li class="sidebar_main_ul_li">
+                            <i class="fa-sharp fa-solid fa-grid-round-2"></i>
+                            <a href="all_product.php"> All Products</a>
+                        </li>
+                        <li class="sidebar_main_ul_li">
+                            <i class="fa-sharp fa-solid fa-grid-round-2"></i>
+                            <a href="about.php">About</a>
+                        </li>
                         <li class="sidebar_main_ul_li">
                             <i class="fa-solid fa-grid"></i>
-                            <a href="dash.html">Dashboard</a>
+                            <a href="contact.php">Contact</a>
                         </li>
-                        <li class="sidebar_main_ul_li">
-                            <i class="fa-sharp fa-solid fa-grid-round-2"></i>
-                            <a href="pament.html">Paments</a>
-                        </li>
-                        <li class="sidebar_main_ul_li">
-                            <i class="fa-sharp fa-solid fa-grid-round-2"></i>
-                            <a href="product.html">Products</a>
-                        </li>
-                        <li class="sidebar_main_ul_li">
-                            <i class="fa-sharp fa-solid fa-grid-round-2"></i>
-                            <a href="all_product.html">All Products</a>
-                        </li>
-                        <li class="sidebar_main_ul_li">
-                            <i class="fa-sharp fa-solid fa-grid-round-2"></i>
-                            <a href="about.html">About</a>
-                        </li>
-                        <li class="sidebar_main_ul_li">
-                            <i class="fa-solid fa-grid"></i>
-                            <a href="contact.html">Contact</a>
-                        </li>
-                        <ul class="sidebar_main_ul_ul" id="side_bar_head" >
-                            <li class="sidebar_main_ul_ul_li" style="background: rgba(255,171,51);">Others</li>
+                        <ul class="sidebar_main_ul_ul" id="side_bar_head">
+                            <li class="sidebar_main_ul_ul_li">Others</li>
                             <div class="sidebar_main_ul_others_content" id="side_bar_content">
                                 <ul class="sidebar_main_ul_others_content_ul">
-                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="sale.html">Sales</a></li>
-                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="blog.html">Blogs</a></li>
-                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="feature.html">Feature
+                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="sale.php">Sales</a></li>
+                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="blog.php">Blogs</a></li>
+                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="feature.php">Feature
                                             Products</a>
                                     </li>
                                     <li class="sidebar_main_ul_others_content_ul_li"><a
-                                            href="promotion.html">Promotion</a></li>
+                                            href="promotion.php">Promotion</a></li>
 
                                 </ul>
                             </div>
@@ -104,33 +125,27 @@
 
             <div class="main_container">
 
-                <div class="main_container_head">
-                    <h2>BLOGS</h2>
-                </div>
+                <!-- head cards -->
+                <div class="head_card_container">
 
-                <div class="main_container_add">
-                    <button id="add_product">ADD BLOGS</button>
-                </div>
-
-                <!-- blog cards -->
-
-                <div class="blogs_card_head">
-
-                    <div class="blogs_card">
-                        <img src="../img/block1.jpg" alt="">
-                        <div class="blogs_card_text">
-                            <h3>3 AUGUST 2019</h3>
-                            <div class="blog_card_btn">
-                                <a href="" style="background: red;">Delete</a>
-                                <a href="" style="background: rgb(255, 150, 0);">Update</a>
-                            </div>
-                        </div>
+                    <div class="head_cards">
+                        <h3>TOTAL MONEY</h3>
+                        <h5>$1000</h5>
                     </div>
-        
-                
+
+                    <div class="head_cards">
+                        <h3>TOTAL USERS</h3>
+                        <h5>$1500</h5>
+                    </div>
+
                 </div>
+                <!-- head cards end -->
 
+                <!-- chart -->
+                <div class="chart">
+                    <div id="piechart_3d" class="peichart" ></div>
 
+                </div>
             </div>
 
             <!-- main text end -->
@@ -147,23 +162,7 @@
     </div>
 
 
-    
-   <div class="product_form" id="product_form">
-    <form>
-        <div class="name">
-            <input type="text" placeholder="Enter Your Name Name">
-        </div>
-        <div class="name">
-            <input type="file">
-        </div>
-        <div class="form_btn">
-            <button>Add</button>
-        </div>
-    </form>
-   </div>
-
-
-    <script src="dashjs/blog.js"></script>
+    <script src="dashjs/dash.js"></script>
 
 
 </body>

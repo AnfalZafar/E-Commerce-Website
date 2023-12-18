@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="dashcss/feature.css">
+    <link rel="stylesheet" href="dashcss/contact.css">
     <script src="https://kit.fontawesome.com/0962378758.js" crossorigin="anonymous"></script>
 
 <body>
@@ -27,39 +27,39 @@
                     <ul class="sidebar_main_ul">
                         <li class="sidebar_main_ul_li">
                             <i class="fa-solid fa-grid"></i>
-                            <a href="dash.html">Dashboard</a>
+                            <a href="dash.php">Dashboard</a>
                         </li>
                         <li class="sidebar_main_ul_li">
                             <i class="fa-sharp fa-solid fa-grid-round-2"></i>
-                            <a href="pament.html">Paments</a>
+                            <a href="pament.php">Paments</a>
                         </li>
                         <li class="sidebar_main_ul_li">
                             <i class="fa-sharp fa-solid fa-grid-round-2"></i>
-                            <a href="product.html">Products</a>
+                            <a href="product.php">Products</a>
                         </li>
                         <li class="sidebar_main_ul_li">
                             <i class="fa-sharp fa-solid fa-grid-round-2"></i>
-                            <a href="all_product.html"> All Products</a>
+                            <a href="all_product.php"> All Products</a>
                         </li>
                         <li class="sidebar_main_ul_li">
                             <i class="fa-sharp fa-solid fa-grid-round-2"></i>
-                            <a href="about.html">About</a>
+                            <a href="about.php">About</a>
                         </li>
-                        <li class="sidebar_main_ul_li">
+                        <li class="sidebar_main_ul_li" style="background: rgba(255,171,51);">
                             <i class="fa-solid fa-grid"></i>
-                            <a href="contact.html">Contact</a>
+                            <a href="contact.php">Contact</a>
                         </li>
                         <ul class="sidebar_main_ul_ul" id="side_bar_head">
-                            <li class="sidebar_main_ul_ul_li"  style="background: rgba(255,171,51);">Others</li>
+                            <li class="sidebar_main_ul_ul_li">Others</li>
                             <div class="sidebar_main_ul_others_content" id="side_bar_content">
                                 <ul class="sidebar_main_ul_others_content_ul">
-                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="sale.html">Sales</a></li>
-                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="blog.html">Blogs</a></li>
-                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="feature.html">Feature
+                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="sale.php">Sales</a></li>
+                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="blog.php">Blogs</a></li>
+                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="feature.php">Feature
                                             Products</a>
                                     </li>
                                     <li class="sidebar_main_ul_others_content_ul_li"><a
-                                            href="promotion.html">Promotion</a></li>
+                                            href="promotion.php">Promotion</a></li>
 
                                 </ul>
                             </div>
@@ -104,53 +104,43 @@
 
             <div class="main_container">
 
-
-    <!-- feature product -->
-
-    <div class="feature_product">
-        <div class="feature_product_head">
-            <h2>OUR FEATURE PRODUCTS</h2>
-        </div>
-        <div class="main_container_add">
-            <button id="add_product">ADD PRODUCTS</button>
-        </div>
-        <div class="feature_container">
-
-            <div class="feature_card">
-                <img src="../img/first cate cofa.jpg" alt="">
-                <div class="feature_text">
-                    <h3>COFA</h3>
-                    <div class="f_card_button">
-                        <a href="" style="background: red;" >Delete</a>
-                        <a href="" style="background: rgba(255,150,0);" >Update</a>
-
-                    </div>
+                <div class="main_container_head">
+                    <h2>MONEY</h2>
                 </div>
-            </div>
 
-            <div class="feature_card">
-                <img src="../img/feature_product_1-removebg-preview.png" alt="">
-                <div class="feature_text" style="padding-top: 3rem;">
-                    <h3>CAP</h3>
+                <div class="table">
+                    <table class="main_table">
+                        <thead class="main_table_thead">
+                            <tr class="main_table_thead_tr">
+                                <th class="main_table_thead_th">Name</th>
+                                <th class="main_table_thead_th">Email</th>
+                                <th class="main_table_thead_th">Phone</th>
+                                <th class="main_table_thead_th">Description</th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="main_table_tbody">
+
+                            <tr class="main_table_tbody_tr">
+                                <td class="main_table_tbody_td">
+                                    <p class="fw-bold mb-1">John Doe</p>
+                                </td>
+                                <td class="main_table_tbody_td">
+                                    <p class="fw-bold mb-1">AnfalZafar533@gmail.com</p>
+                                </td>
+                                <td class="main_table_tbody_td">
+                                    <p class="fw-bold mb-1">03422471371</p>
+                                </td>
+                                <td class="main_table_tbody_td">
+                                    <p>Please Let me give some </p>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
                 </div>
-            </div>
 
-            <div class="feature_card">
-                <img src="../img/feature_product_2.jpg" width="190px" height="190px" alt="">
-                <div class="feature_text" style="padding-top: 2.5rem;">
-                    <h3>SHOES</h3>
-                </div>
-            </div>
-
-            <div class="feature_card">
-                <img src="../img/feature_product_3-removebg-preview.png" width="200px" height="190px" alt="">
-                <div class="feature_text" style="padding-top: 2.5rem;">
-                    <h3>CLOTHES</h3>
-                </div>
-            </div>
-
-        </div>
-    </div>
 
             </div>
 
@@ -163,27 +153,12 @@
     </div>
 
 
-    <div class="product_form" id="product_form">
-        <form>
-            <div class="name">
-                <input type="text" placeholder="Enter Your Product Name">
-            </div>
-            <div class="name">
-                <input type="text" placeholder="Enter Your Product Title">
-            </div>
-            <div class="name">
-                <input type="file">
-            </div>
-            <div class="form_btn">
-                <button>Add</button>
-            </div>
-        </form>
-       </div>
-    
 
 
 
-    <script src="dashjs/feature.js"></script>
+
+
+    <script src="dashjs/contact.js"></script>
 
 
 </body>

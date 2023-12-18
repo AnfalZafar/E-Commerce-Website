@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="stylesheet" href="css/about.css">
+    <title>Contact</title>
+    <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <script src="https://kit.fontawesome.com/0962378758.js" crossorigin="anonymous"></script>
 </head>
@@ -49,7 +49,7 @@
             <div class="cart">
 
                 <div class="cart_logo">
-                    <a href="index.html"><img src="img/logo-removebg-preview (2).png" alt=""></a>
+                    <a href="index.php"><img src="img/logo-removebg-preview (2).png" alt=""></a>
                 </div>
 
                 <div class="nav_search">
@@ -130,11 +130,11 @@
             <div class="main_navbar">
                 <div class="main_nav" id="main_nav">
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="product.html">Products</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="product.php">Products</a></li>
+                        <li><a href="about.php">About Us</a></li>
+                        <li><a href="contact.php">Contact Us</a></li>
+                        <li><a href="blog.php">Blog</a></li>
 
                     </ul>
                 </div>
@@ -147,83 +147,55 @@
 
     </div>
 
-    <!-- about us -->
 
-    <div class="about_us">
-        <div class="about_head">
-            <h2>ABOUT OUR STORE</h2>
+    <!-- contact -->
+
+
+    <div class="contact">
+        <div class="contact_head">
+            <h2>CONTACT US</h2>
         </div>
+        <div class="contact_page">
 
-        <div class="about_container">
 
-            <div class="about_img">
-                <img src="img/aboutus.jpg" alt="">
-            </div>
-
-            <div class="about_text">
-                <h3>Welcome to our e-commerce store, your one-stop destination for high-quality watches, stylish
-                    t-shirts, premium headphones, and trendy shoes. We are passionate about providing you with the best
-                    selection of products to suit your style and needs.</h3>
-                <h3>Our team is dedicated to offering top-notch customer service, quick shipping, and a secure shopping
-                    experience. With a commitment to quality and style, we strive to make your online shopping
-                    experience as enjoyable as possible.</h3>
+            <div class="contact_map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.1377120034776!2d67.03045311032794!3d24.927378142485455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f90157042d3%3A0x93d609e8bec9a880!2sAptech%20Computer%20Education%20North%20Nazimabad%20Center!5e0!3m2!1sen!2s!4v1697523161919!5m2!1sen!2s"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
 
             </div>
 
-        </div>
 
-    </div>
+            <form class="contact_form">
 
-    <!-- Our Team -->
+                <div class="name">
+                    <div class="name_input">
+                        <input type="text" placeholder="Enter Your First Name">
+                    </div>
+                    <div class="name_input">
+                        <input type="text" placeholder="Enter Your Last Name">
+                    </div>
 
-
-    <div class="our_team">
-        <div class="team_head">
-            <h2>OUR TEAM</h2>
-        </div>
-        <div class="team_container">
-
-
-            <div class="team_card">
-                <img src="img/ourteam.jpg" alt="">
-                <div class="team_card_text">
-                    <h3>John Son</h3>
-                    <p>OPRATOR</p>
                 </div>
-            </div>
 
-            <div class="team_card">
-                <img src="img/ourteam2.jpg" alt="">
-                <div class="team_card_text">
-                    <h3>John Son</h3>
-                    <p>OPRATOR</p>
+                <div class="name">
+                    <div class="name_input">
+                        <input type="email" placeholder="Enter Your Email">
+                    </div>
+                    <div class="name_input">
+                        <input type="text" placeholder="Enter Your Phone Number">
+                    </div>
+
                 </div>
-            </div>
 
-            <div class="team_card">
-                <img src="img/ourteam3.jpg" alt="">
-                <div class="team_card_text">
-                    <h3>John Son</h3>
-                    <p>OPRATOR</p>
+                <div class="message">
+                    <textarea name="" placeholder="Enter Your Message"></textarea>
                 </div>
-            </div>
 
-            <div class="team_card">
-                <img src="img/ourteam4.jpg" alt="">
-                <div class="team_card_text">
-                    <h3>John Son</h3>
-                    <p>OPRATOR</p>
-                </div>
-            </div>
-
-
+            </form>
         </div>
     </div>
-
-    <!-- our mission -->
-
-
-
 
 
 
@@ -268,10 +240,10 @@
 
             <div class="footer_3">
                 <ul class="footer3_ul">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="product.html">Products</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="product.php">Products</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
                     <li><a href="">Blogs</a></li>
                 </ul>
             </div>
@@ -300,7 +272,7 @@
     </footer>
 
 
-       <!-- responsive footer -->
+    <!-- responsive footer -->
 
     <footer class="main_footer">
 
@@ -335,10 +307,10 @@
 
                 </div>
                 <ul class="mainfooter3_ul" id="ul_3">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="product.html">Products</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="product.php">Products</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
                     <li><a href="">Blogs</a></li>
                 </ul>
             </div>
@@ -368,15 +340,14 @@
         </div>
 
 
- </footer>
-
+    </footer>
 
 
     <!-- scrool top button -->
 
     <button class="scroll_top" id="scroll_top" onclick="topFunction()"><i class="fa-solid fa-angle-up"></i></button>
 
-    <script src="js/about.js"></script>
+    <script src="js/contact.js"></script>
 
 </body>
 
