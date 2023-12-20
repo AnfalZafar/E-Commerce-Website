@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2023 at 06:21 PM
+-- Generation Time: Dec 20, 2023 at 06:57 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -51,11 +51,18 @@ INSERT INTO `about_table` (`about_id`, `about_text`, `about_img`, `about_team_im
 
 CREATE TABLE `all_products` (
   `a_p_id` int(11) NOT NULL,
-  `product_foren` int(11) NOT NULL,
-  `a_p_name` varchar(500) NOT NULL,
-  `a_p_descript` varchar(500) NOT NULL,
-  `a_p_img` varchar(500) NOT NULL
+  `a_p_name` varchar(500) DEFAULT NULL,
+  `a_p_img` varchar(500) DEFAULT NULL,
+  `a_p_descript` varchar(500) DEFAULT NULL,
+  `product_foren` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `all_products`
+--
+
+INSERT INTO `all_products` (`a_p_id`, `a_p_name`, `a_p_img`, `a_p_descript`, `product_foren`) VALUES
+(1, 'T-SHIRT', 't_shirt1.jpg', 'Proajlkfjakushdfjkasq', 13);
 
 -- --------------------------------------------------------
 
@@ -111,15 +118,16 @@ CREATE TABLE `sales_table` (
   `sales_id` int(11) NOT NULL,
   `sales_name` varchar(500) NOT NULL,
   `sales_img` varchar(500) NOT NULL,
-  `sales_price` varchar(200) NOT NULL
+  `sales_price` varchar(200) NOT NULL,
+  `actual_price` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `sales_table`
 --
 
-INSERT INTO `sales_table` (`sales_id`, `sales_name`, `sales_img`, `sales_price`) VALUES
-(3, 'WATCH', 'first cate watch.jpg', '$:200');
+INSERT INTO `sales_table` (`sales_id`, `sales_name`, `sales_img`, `sales_price`, `actual_price`) VALUES
+(4, 'Watch', 'first cate watch.jpg', '$:50', '$:80');
 
 --
 -- Indexes for dumped tables
@@ -136,7 +144,7 @@ ALTER TABLE `about_table`
 --
 ALTER TABLE `all_products`
   ADD PRIMARY KEY (`a_p_id`),
-  ADD KEY `post_foren` (`product_foren`);
+  ADD KEY `product_foren` (`product_foren`);
 
 --
 -- Indexes for table `e_product`
@@ -170,7 +178,7 @@ ALTER TABLE `about_table`
 -- AUTO_INCREMENT for table `all_products`
 --
 ALTER TABLE `all_products`
-  MODIFY `a_p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `a_p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `e_product`
@@ -188,7 +196,7 @@ ALTER TABLE `feature_product`
 -- AUTO_INCREMENT for table `sales_table`
 --
 ALTER TABLE `sales_table`
-  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `sales_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -198,7 +206,7 @@ ALTER TABLE `sales_table`
 -- Constraints for table `all_products`
 --
 ALTER TABLE `all_products`
-  ADD CONSTRAINT `post_foren` FOREIGN KEY (`product_foren`) REFERENCES `e_product` (`product_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `all_products_ibfk_1` FOREIGN KEY (`product_foren`) REFERENCES `e_product` (`product_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
