@@ -1,3 +1,32 @@
+<?php
+
+include("../connection.php");
+
+if (isset($_POST["btn"])) {
+    $name = $_POST["name"];
+    $price = $_POST["price"];
+    $actual_price = $_POST["a_price"];
+    $img_type = $_FILES["img"]["type"];
+    if (strtolower($img_type) == "image/png" || strtolower($img_type) == "image/jpg" || strtolower($img_type) == "image/jpeg") {
+        $img_name = $_FILES["img"]["name"];
+        $target = "../img/" . basename($img_name);
+        if (move_uploaded_file($_FILES['img']["tmp_name"], $target)) {
+            $insert = "INSERT INTO `sales_table`(`sales_name`, `sales_img`, `sales_price`, `actual_price`) VALUES ('$name','$img_name','$price','$actual_price')";
+            $run = mysqli_query($connect, $insert);
+
+            if ($run) {
+                echo ("
+                <script>
+                alert('Submit Successfull');
+                </script>
+                ");
+            }
+        }
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,8 +86,7 @@
                                     <li class="sidebar_main_ul_others_content_ul_li"><a href="feature.php">Feature
                                             Products</a>
                                     </li>
-                                    <li class="sidebar_main_ul_others_content_ul_li"><a
-                                            href="promotion.php">Promotion</a></li>
+                                    <li class="sidebar_main_ul_others_content_ul_li"><a href="promotion.php">Promotion</a></li>
 
                                 </ul>
                             </div>
@@ -114,18 +142,33 @@
                         <button id="add_sales_product">Add Slaes Products</button>
                     </div>
                     <div class="feature_container">
+                        <?php
 
-                        <div class="feature_card">
-                            <img src="../img/first cate cofa.jpg" alt="">
-                            <div class="feature_text">
-                                <h3>COFA</h3>
-                                <div class="f_card_button">
-                                    <a href="" style="background: red;" >Delete</a>
-                                    <a href="" style="background: rgba(255,150,0);">Update</a>
+                        $select = "SELECT * FROM `sales_table`";
+                        $run = mysqli_query($connect, $select);
+                        while ($row = mysqli_fetch_array($run)) { ?>
 
+                            <div class="feature_card">
+                                <img src="../img/<?php echo $row["sales_img"]?>" alt="">
+                                <div class="feature_text">
+                                    <h3><?php echo $row["sales_name"]?></h3>
+                                    <p><?php echo $row["sales_price"]?></p>
+                                    <del><?php echo $row["actual_price"]?></del>
+                                    <div class="f_card_button">
+                                        <a href="" style="background: red;">Delete</a>
+                                        <a href="" style="background: rgba(255,150,0);">Update</a>
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+
+                        <?php
+                        }
+
+                        ?>
+
+
+
 
                     </div>
 
@@ -146,18 +189,23 @@
     <!-- add sales form -->
 
     <div class="add_sales_form" id="add_sales_form">
-        <form>
+        <form method="post" enctype="multipart/form-data">
 
             <div class="name">
-                <input type="text" placeholder="Enter Product Name">
+                <input name="name" type="text" placeholder="Enter Product Name">
             </div>
-
             <div class="name">
-                <input type="file" placeholder="">
+                <input name="price" placeholder="Enter You Price">
+            </div>
+            <div class="name">
+                <input name="a_price" placeholder="Enter You Acutal Price">
+            </div>
+            <div class="name">
+                <input name="img" type="file" placeholder="">
             </div>
 
             <div class="form_btn">
-                <button>Add</button>
+                <button name="btn">Add</button>
             </div>
 
 

@@ -1,3 +1,8 @@
+<?php 
+include("connection.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -273,36 +278,26 @@
         </div>
         <div class="container_p_card">
 
+        <?php 
+        
+        $select = "SELECT * FROM `e_product`";
+        $run = mysqli_query($connect , $select);
+        while($fetch = mysqli_fetch_array($run)){?>
 
-            <a href="" class="p_card">
-                <img src="img/first cate watch.jpg" alt="">
+               <a href="" class="p_card">
+                <img src="img/<?php echo $fetch["product_img"]?>" alt="">
                 <div class="p_card_text">
-                    <h3>WATCHES</h3>
+                    <h3><?php echo $fetch["product_name"]?></h3>
                 </div>
             </a>
+    
+    <?php
+    }
+        ?>
 
-            <a href="" class="p_card">
-                <img src="img/first cate headphone.jpg" alt="">
-                <div class="p_card_text">
-                    <h3>HEADS PHONES</h3>
-                </div>
-            </a>
+     
 
-            <a href="" class="p_card">
-                <img src="img/first_cate_shoes_1-removebg-preview.png"
-                    style="padding-bottom: 2rem;background: rgb(247,247,247);" alt="">
-                <div class="p_card_text">
-                    <h3>SHOES</h3>
-                </div>
-            </a>
-
-            <a href="" class="p_card">
-                <img src="img/first cate tshirt.jpg" alt="">
-                <div class="p_card_text">
-                    <h3>T-SHIRTS</h3>
-                </div>
-            </a>
-
+          
 
         </div>
     </div>
@@ -384,33 +379,22 @@
         </div>
         <div class="feature_container">
 
+        <?php 
+        
+        $select = "SELECT * FROM `feature_product`";
+        $run = mysqli_query($connect , $select);
+        while($fetch = mysqli_fetch_array($run)){?>
+
             <div class="feature_card">
-                <img src="img/first cate cofa.jpg" alt="">
+                <img src="img/<?php echo $fetch["fea_img"]?>" alt="">
                 <div class="feature_text">
-                    <h3>COFA</h3>
+                    <h3><?php echo $fetch["fea_name"]?></h3>
                 </div>
             </div>
-
-            <div class="feature_card">
-                <img src="img/feature_product_1-removebg-preview.png" alt="">
-                <div class="feature_text" style="padding-top: 3rem;">
-                    <h3>CAP</h3>
-                </div>
-            </div>
-
-            <div class="feature_card">
-                <img src="img/feature_product_2.jpg" width="190px" height="190px" alt="">
-                <div class="feature_text" style="padding-top: 2.5rem;">
-                    <h3>SHOES</h3>
-                </div>
-            </div>
-
-            <div class="feature_card">
-                <img src="img/feature_product_3-removebg-preview.png" width="200px" height="190px" alt="">
-                <div class="feature_text" style="padding-top: 2.5rem;">
-                    <h3>CLOTHES</h3>
-                </div>
-            </div>
+<?php
+        }
+        ?>
+           
 
         </div>
     </div>
@@ -425,16 +409,25 @@
                 <h1>HAPPEY SLAES</h1>
             </div>
 
+            <?php 
+        
+        $select = "SELECT * FROM `sales_table`";
+        $run = mysqli_query($connect , $select);
+        while($fetch = mysqli_fetch_array($run)){?>
+
             <div class="sales_card">
-                <img src="img/holl_sell_shirt 1.png" alt="">
+                <img src="img/<?php echo $fetch["sales_img"]?>" alt="">
                 <div class="sales_text">
-                    <h2>T-Shirt</h2>
+                    <h2><?php echo $fetch["sales_name"]?></h2>
                     <div class="sales_text_price">
-                        <del>$60</del>
-                        <h3>$50</h3>
+                        <del><?php echo $fetch["sales_price"]?></del>
+                        <h3><?php echo $fetch["actual_price"]?></h3>
                     </div>
                 </div>
             </div>
+<?php
+}
+?>
 
 
         </div>
