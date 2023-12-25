@@ -1,3 +1,9 @@
+<?php
+
+include("../connection.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -119,25 +125,39 @@
 
                             </tr>
                         </thead>
-                        <tbody class="main_table_tbody">
+<?php
 
-                            <tr class="main_table_tbody_tr">
-                                <td class="main_table_tbody_td">
-                                    <p class="fw-bold mb-1">John Doe</p>
-                                </td>
-                                <td class="main_table_tbody_td">
-                                    <p class="fw-bold mb-1">AnfalZafar533@gmail.com</p>
-                                </td>
-                                <td class="main_table_tbody_td">
-                                    <p class="fw-bold mb-1">03422471371</p>
-                                </td>
-                                <td class="main_table_tbody_td">
-                                    <p>Please Let me give some </p>
-                                </td>
+$select = "SELECT * FROM `contact_table`";
+$run = mysqli_query($connect , $select);
+while($fetch = mysqli_fetch_array($run)){?>
 
-                            </tr>
 
-                        </tbody>
+<tbody class="main_table_tbody">
+
+<tr class="main_table_tbody_tr">
+    <td class="main_table_tbody_td">
+        <p class="fw-bold mb-1"><?php echo $fetch["c_name"]?> <?php echo $fetch["c_l_name"]?></p>
+    </td>
+    <td class="main_table_tbody_td">
+        <p class="fw-bold mb-1"><?php echo $fetch["c_email"]?></p>
+    </td>
+    <td class="main_table_tbody_td">
+        <p class="fw-bold mb-1"><?php echo $fetch["c_phone"]?></p>
+    </td>
+    <td class="main_table_tbody_td">
+        <p><?php echo $fetch["c_message"]?></p>
+    </td>
+
+</tr>
+
+</tbody>
+
+
+<?php
+}
+
+?>
+
                     </table>
                 </div>
 

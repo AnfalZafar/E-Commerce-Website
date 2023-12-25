@@ -187,13 +187,9 @@ if (isset($_POST["p_add"])) {
     </div>
 
 
-<?php
 
-$select_tabel = "SELECT * FROM `e_product`";
-$run_tabel = mysqli_query($connect , $select_tabel);
-while($fetch = mysqli_fetch_assoc($run_tabel)){?>
 
-<div class="product_form" id="product_form">
+    <div class="product_form" id="product_form">
         <form method="post" enctype="multipart/form-data">
             <div class="name">
                 <input type="text" name="p_name" placeholder="Enter Your Product Name">
@@ -201,10 +197,21 @@ while($fetch = mysqli_fetch_assoc($run_tabel)){?>
             <div class="name">
                 <input type="text" name="p_title" placeholder="Enter Your Product Title">
             </div>
+
             <label for="color">Select Items:</label>
             <select name="id" id="color">
-                <option value="<?php echo $fetch["product_id"]?>"><?php echo $fetch["product_name"]?></option>
+                <?php
+
+                $select_tabel = "SELECT * FROM `e_product`";
+                $run_tabel = mysqli_query($connect, $select_tabel);
+                while ($fetch = mysqli_fetch_assoc($run_tabel)) { ?>
+                    <option value="<?php echo $fetch["product_id"] ?>"><?php echo $fetch["product_name"] ?></option>
+                <?php
+                }
+
+                ?>
             </select>
+
             <div class="name">
                 <input type="file" name="p_img">
             </div>
@@ -215,13 +222,10 @@ while($fetch = mysqli_fetch_assoc($run_tabel)){?>
         </form>
     </div>
 
-    <?php
-}
-
-?>
 
 
-  
+
+
 
 
 

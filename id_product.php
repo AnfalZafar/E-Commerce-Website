@@ -2,26 +2,6 @@
 
 include("connection.php");
 
-
-if(isset($_POST["btn"])){
-    $name = $_POST["f_name"];
-    $l_name = $_POST["l_name"];
-    $email = $_POST["email"];
-    $phone = $_POST["phone"];
-    $message = $_POST["message"];
-
-    $insert = "INSERT INTO `contact_table`( `c_name`, `c_l_name`, `c_email`, `c_phone`, `c_message`) VALUES ('$name','$l_name','$email','$phone','$message')";
-    $run = mysqli_query($connect , $insert);
-    if($run){
-        echo "
-        <script>
-        alert('Submit Successfulley');
-        </script>
-        ";
-    }
-
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -30,8 +10,8 @@ if(isset($_POST["btn"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <link rel="stylesheet" href="css/contact.css">
+    <title>Products</title>
+    <link rel="stylesheet" href="css/product.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <script src="https://kit.fontawesome.com/0962378758.js" crossorigin="anonymous"></script>
 </head>
@@ -173,56 +153,38 @@ if(isset($_POST["btn"])){
 
     </div>
 
+    <!-- our product -->
 
-    <!-- contact -->
+    <div class="our_product">
+        <div class="container_p_card">
 
+<?php
+$get = $_GET["id"];
+$select = "SELECT * FROM `all_products` WHERE `product_foren` = $get";
+$run = mysqli_query($connect , $select);
+while($fetch = mysqli_fetch_array($run)){?>
 
-    <div class="contact">
-        <div class="contact_head">
-            <h2>CONTACT US</h2>
-        </div>
-        <div class="contact_page">
+<div class="p_card">
+                <img src="img/<?php echo $fetch["a_p_img"]?>" alt="">
+                <div class="p_card_text">
+                    <h3><?php echo $fetch["a_p_name"]?></h3>
+                    <p><?php echo $fetch["a_p_descript"]?></p>
+                    <div class="p_card_btn">
+                        <button>Add to Cart</button>
+                        <button>Watch More</button>
 
-
-            <div class="contact_map">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.1377120034776!2d67.03045311032794!3d24.927378142485455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f90157042d3%3A0x93d609e8bec9a880!2sAptech%20Computer%20Education%20North%20Nazimabad%20Center!5e0!3m2!1sen!2s!4v1697523161919!5m2!1sen!2s"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+                    </div>
+                </div>
             </div>
 
 
-            <form class="contact_form" method="post" enctype="multipart/form-data">
+<?php
 
-                <div class="name">
-                    <div class="name_input">
-                        <input type="text" name="f_name" placeholder="Enter Your First Name">
-                    </div>
-                    <div class="name_input">
-                        <input type="text" name="l_name" placeholder="Enter Your Last Name">
-                    </div>
+}
 
-                </div>
+?>
+           
 
-                <div class="name">
-                    <div class="name_input">
-                        <input type="email" name="email" placeholder="Enter Your Email">
-                    </div>
-                    <div class="name_input">
-                        <input type="text" name="phone" placeholder="Enter Your Phone Number">
-                    </div>
-
-                </div>
-
-                <div class="message">
-                    <textarea name="message" placeholder="Enter Your Message"></textarea>
-                </div>
-                <div class="btn">
-                    <button name="btn">Submit</button>
-                </div>
-
-            </form>
         </div>
     </div>
 
@@ -376,7 +338,7 @@ if(isset($_POST["btn"])){
 
     <button class="scroll_top" id="scroll_top" onclick="topFunction()"><i class="fa-solid fa-angle-up"></i></button>
 
-    <script src="js/contact.js"></script>
+    <script src="js/product.js"></script>
 
 </body>
 

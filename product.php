@@ -1,3 +1,9 @@
+<?php 
+
+include("connection.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -152,12 +158,17 @@
     <div class="our_product">
         <div class="container_p_card">
 
+<?php
 
-            <div class="p_card">
-                <img src="img/t_shirt1.jpg" alt="">
+$select = "SELECT * FROM `all_products`";
+$run = mysqli_query($connect , $select);
+while($fetch = mysqli_fetch_array($run)){?>
+
+<div class="p_card">
+                <img src="img/<?php echo $fetch["a_p_img"]?>" alt="">
                 <div class="p_card_text">
-                    <h3>T-SHIRT</h3>
-                    <p>Lorem ipsum dolor sit amet and consectetur adipisicing elit. for Deleniti, ducimus.</p>
+                    <h3><?php echo $fetch["a_p_name"]?></h3>
+                    <p><?php echo $fetch["a_p_descript"]?></p>
                     <div class="p_card_btn">
                         <button>Add to Cart</button>
                         <button>Watch More</button>
@@ -166,200 +177,13 @@
                 </div>
             </div>
 
-            <div class="p_card">
-                <img src="img/t_shirt2.jpg" alt="">
-                <div class="p_card_text">
-                    <h3>T-SHIRT</h3>
-                    <p>Lorem ipsum dolor sit amet and consectetur adipisicing elit. for Deleniti, ducimus.</p>
-                    <div class="p_card_btn">
-                        <button>Add to Cart</button>
-                        <button>Watch More</button>
 
-                    </div>
-                </div>
-            </div>
+<?php
 
-            <div class="p_card">
-                <img src="img/t_shirt3.jpg" alt="">
-                <div class="p_card_text">
-                    <h3>T-SHIRT</h3>
-                    <p>Lorem ipsum dolor sit amet and consectetur adipisicing elit. for Deleniti, ducimus.</p>
-                    <div class="p_card_btn">
-                        <button>Add to Cart</button>
-                        <button>Watch More</button>
+}
 
-                    </div>
-                </div>
-            </div>
-
-            <div class="p_card">
-                <img src="img/t_shirt4-removebg-preview.png" alt="">
-                <div class="p_card_text">
-                    <h3>T-SHIRT</h3>
-                    <p>Lorem ipsum dolor sit amet and consectetur adipisicing elit. for Deleniti, ducimus.</p>
-                    <div class="p_card_btn">
-                        <button>Add to Cart</button>
-                        <button>Watch More</button>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="p_card">
-                <img src="img/headphone1-removebg-preview.png" alt="">
-                <div class="p_card_text">
-                    <h3>HEAD PHONES</h3>
-                    <p>Lorem ipsum dolor sit amet and consectetur adipisicing elit. for Deleniti, ducimus.</p>
-                    <div class="p_card_btn">
-                        <button>Add to Cart</button>
-                        <button>Watch More</button>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="p_card">
-                <img src="img/headphone2-removebg-preview.png" alt="">
-                <div class="p_card_text">
-                    <h3>HEAD PHONES</h3>
-                    <p>Lorem ipsum dolor sit amet and consectetur adipisicing elit. for Deleniti, ducimus.</p>
-                    <div class="p_card_btn">
-                        <button>Add to Cart</button>
-                        <button>Watch More</button>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="p_card">
-                <img src="img/headphone3-removebg-preview.png" alt="">
-                <div class="p_card_text">
-                    <h3>HEAD PHONES</h3>
-                    <p>Lorem ipsum dolor sit amet and consectetur adipisicing elit. for Deleniti, ducimus.</p>
-                    <div class="p_card_btn">
-                        <button>Add to Cart</button>
-                        <button>Watch More</button>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="p_card">
-                <img src="img/headphone5-removebg-preview.png" alt="">
-                <div class="p_card_text">
-                    <h3>HEAD PHONES</h3>
-                    <p>Lorem ipsum dolor sit amet and consectetur adipisicing elit. for Deleniti, ducimus.</p>
-                    <div class="p_card_btn">
-                        <button>Add to Cart</button>
-                        <button>Watch More</button>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="p_card">
-                <img src="img/watch1-removebg-preview.png" alt="">
-                <div class="p_card_text">
-                    <h3>WATCH</h3>
-                    <p>Lorem ipsum dolor sit amet and consectetur adipisicing elit. for Deleniti, ducimus.</p>
-                    <div class="p_card_btn">
-                        <button>Add to Cart</button>
-                        <button>Watch More</button>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="p_card">
-                <img src="img/watch2-removebg-preview.png" alt="">
-                <div class="p_card_text">
-                    <h3>WATCH</h3>
-                    <p>Lorem ipsum dolor sit amet and consectetur adipisicing elit. for Deleniti, ducimus.</p>
-                    <div class="p_card_btn">
-                        <button>Add to Cart</button>
-                        <button>Watch More</button>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="p_card">
-                <img src="img/watch5-removebg-preview.png" alt="">
-                <div class="p_card_text">
-                    <h3>WATCH</h3>
-                    <p>Lorem ipsum dolor sit amet and consectetur adipisicing elit. for Deleniti, ducimus.</p>
-                    <div class="p_card_btn">
-                        <button>Add to Cart</button>
-                        <button>Watch More</button>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="p_card">
-                <img src="img/watch4-removebg-preview.png" alt="">
-                <div class="p_card_text">
-                    <h3>WATCH</h3>
-                    <p>Lorem ipsum dolor sit amet and consectetur adipisicing elit. for Deleniti, ducimus.</p>
-                    <div class="p_card_btn">
-                        <button>Add to Cart</button>
-                        <button>Watch More</button>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="p_card">
-                <img src="img/shoes1-removebg-preview.png" alt="">
-                <div class="p_card_text">
-                    <h3>SHOES</h3>
-                    <p>Lorem ipsum dolor sit amet and consectetur adipisicing elit. for Deleniti, ducimus.</p>
-                    <div class="p_card_btn">
-                        <button>Add to Cart</button>
-                        <button>Watch More</button>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="p_card">
-                <img src="img/shoes2-removebg-preview.png" alt="">
-                <div class="p_card_text">
-                    <h3>SHOES</h3>
-                    <p>Lorem ipsum dolor sit amet and consectetur adipisicing elit. for Deleniti, ducimus.</p>
-                    <div class="p_card_btn">
-                        <button>Add to Cart</button>
-                        <button>Watch More</button>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="p_card">
-                <img src="img/shoes3-removebg-preview.png" alt="">
-                <div class="p_card_text">
-                    <h3>SHOES</h3>
-                    <p>Lorem ipsum dolor sit amet and consectetur adipisicing elit. for Deleniti, ducimus.</p>
-                    <div class="p_card_btn">
-                        <button>Add to Cart</button>
-                        <button>Watch More</button>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="p_card">
-                <img src="img/shoes4-removebg-preview.png" alt="">
-                <div class="p_card_text">
-                    <h3>SHOES</h3>
-                    <p>Lorem ipsum dolor sit amet and consectetur adipisicing elit. for Deleniti, ducimus.</p>
-                    <div class="p_card_btn">
-                        <button>Add to Cart</button>
-                        <button>Watch More</button>
-
-                    </div>
-                </div>
-            </div>
+?>
+           
 
         </div>
     </div>

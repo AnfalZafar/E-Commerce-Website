@@ -510,7 +510,7 @@
     border: 1px solid #353535;
     border-radius: 10px;
     background: #f8f8f8;
-    display: block;
+    display: none;
 }
 .product_form.open_modal{
     width: 30%;
@@ -604,7 +604,7 @@
         border: 1px solid #353535;
         border-radius: 10px;
         background: #f8f8f8;
-        display: block;
+        display: none;
     }
     .product_form.open_modal{
         width: 40%;

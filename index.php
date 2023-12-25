@@ -1,4 +1,4 @@
-<?php 
+<?php
 include("connection.php");
 
 ?>
@@ -84,37 +84,53 @@ include("connection.php");
 
                 <div class="nav_search">
 
-                    <div class="nav_search_container">
-                        <input type="search" placeholder="Search Your Item" id="search_input">
+                    <form method="post" enctype="multipart/form-data" class="nav_search_container">
+                        <input name="search" type="search" placeholder="Search Your Item" id="search_input">
                         <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
+</form>
 
                     <div class="search_result" id="search_result">
                         <div class="search_croos">
                             <i class="fa-solid fa-xmark" id="search_croos"></i>
                         </div>
 
-                        <div class="search_result_form">
+<?php
+if(isset($_POST["search"])){
+$search = $_POST["search"];
+$select = "SELECT * FROM `all_products` WHERE `a_p_name` = LIKE % $search %";
+$run = mysqli_query($connect , $select);
+while($fetch = mysqli_fetch_array($row)){?>
 
-                            <div class="search_result_text">
+<div class="search_result_form">
 
-                                <div class="search_img_name">
-                                    <img src="img/cofa1.jpg" alt="">
-                                    <div class="search_result_text_name">
-                                        <h3>Cofa</h3>
-                                    </div>
-                                </div>
+<div class="search_result_text">
 
-                                <div class="price">
-                                    <p>$400</p>
-                                </div>
+    <div class="search_img_name">
+        <img src="img/<?php echo $fetch["a_p_img"]?>" alt="">
+        <div class="search_result_text_name">
+            <h3><?php echo $fetch["a_p_name"]?></h3>
+        </div>
+    </div>
 
-
-
-                            </div>
+    <div class="price">
+        <p><?php echo $fetch["a_p_price"]?></p>
+    </div>
 
 
-                        </div>
+
+</div>
+
+
+</div>
+
+<?php
+}
+}
+
+?>
+
+                     
+                        
 
 
 
@@ -278,26 +294,37 @@ include("connection.php");
         </div>
         <div class="container_p_card">
 
-        <?php 
-        
-        $select = "SELECT * FROM `e_product`";
-        $run = mysqli_query($connect , $select);
-        while($fetch = mysqli_fetch_array($run)){?>
+            <?php
 
-               <a href="" class="p_card">
-                <img src="img/<?php echo $fetch["product_img"]?>" alt="">
-                <div class="p_card_text">
-                    <h3><?php echo $fetch["product_name"]?></h3>
-                </div>
-            </a>
-    
-    <?php
-    }
-        ?>
+            $select_table = "SELECT * FROM `all_products`";
+            $run_tabel = mysqli_query($connect, $select_table);
+            $row = mysqli_fetch_array($run_tabel);
 
-     
+            ?>
 
-          
+            <?php
+
+                $select = "SELECT * FROM `e_product`";
+                $run = mysqli_query($connect, $select);
+                while ($fetch = mysqli_fetch_array($run)) {
+                    $id = $fetch["product_id"];
+                    ?>
+                    <a href="id_product.php?id=<?php echo $id?>" class="p_card">
+                        <img src="img/<?php echo $fetch["product_img"] ?>" alt="">
+                        <div class="p_card_text">
+                            <h3><?php echo $fetch["product_name"] ?></h3>
+                        </div>
+                    </a>
+
+            <?php
+            
+                }
+            
+            ?>
+
+
+
+
 
         </div>
     </div>
@@ -379,22 +406,22 @@ include("connection.php");
         </div>
         <div class="feature_container">
 
-        <?php 
-        
-        $select = "SELECT * FROM `feature_product`";
-        $run = mysqli_query($connect , $select);
-        while($fetch = mysqli_fetch_array($run)){?>
+            <?php
 
-            <div class="feature_card">
-                <img src="img/<?php echo $fetch["fea_img"]?>" alt="">
-                <div class="feature_text">
-                    <h3><?php echo $fetch["fea_name"]?></h3>
+            $select = "SELECT * FROM `feature_product`";
+            $run = mysqli_query($connect, $select);
+            while ($fetch = mysqli_fetch_array($run)) { ?>
+
+                <div class="feature_card">
+                    <img src="img/<?php echo $fetch["fea_img"] ?>" alt="">
+                    <div class="feature_text">
+                        <h3><?php echo $fetch["fea_name"] ?></h3>
+                    </div>
                 </div>
-            </div>
-<?php
-        }
-        ?>
-           
+            <?php
+            }
+            ?>
+
 
         </div>
     </div>
@@ -409,25 +436,25 @@ include("connection.php");
                 <h1>HAPPEY SLAES</h1>
             </div>
 
-            <?php 
-        
-        $select = "SELECT * FROM `sales_table`";
-        $run = mysqli_query($connect , $select);
-        while($fetch = mysqli_fetch_array($run)){?>
+            <?php
 
-            <div class="sales_card">
-                <img src="img/<?php echo $fetch["sales_img"]?>" alt="">
-                <div class="sales_text">
-                    <h2><?php echo $fetch["sales_name"]?></h2>
-                    <div class="sales_text_price">
-                        <del><?php echo $fetch["sales_price"]?></del>
-                        <h3><?php echo $fetch["actual_price"]?></h3>
+            $select = "SELECT * FROM `sales_table`";
+            $run = mysqli_query($connect, $select);
+            while ($fetch = mysqli_fetch_array($run)) { ?>
+
+                <div class="sales_card">
+                    <img src="img/<?php echo $fetch["sales_img"] ?>" alt="">
+                    <div class="sales_text">
+                        <h2><?php echo $fetch["sales_name"] ?></h2>
+                        <div class="sales_text_price">
+                            <del><?php echo $fetch["sales_price"] ?></del>
+                            <h3><?php echo $fetch["actual_price"] ?></h3>
+                        </div>
                     </div>
                 </div>
-            </div>
-<?php
-}
-?>
+            <?php
+            }
+            ?>
 
 
         </div>
