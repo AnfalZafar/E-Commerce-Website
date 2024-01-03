@@ -155,8 +155,8 @@ if (isset($_POST["btn"])) {
                                     <p><?php echo $row["sales_price"]?></p>
                                     <del><?php echo $row["actual_price"]?></del>
                                     <div class="f_card_button">
-                                        <a href="" style="background: red;">Delete</a>
-                                        <a href="" style="background: rgba(255,150,0);">Update</a>
+                                        <a href="sale_delete.php?delete=<?php echo $row["sales_id"]?>" style="background: red;">Delete</a>
+                                        <a href="sale_update.php?update=<?php echo $row["sales_id"]?>" style="background: rgba(255,150,0);">Update</a>
 
                                     </div>
                                 </div>

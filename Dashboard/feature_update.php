@@ -2,6 +2,11 @@
 
 include("../connection.php");
 
+$get = $_GET['update'];
+$select = "SELECT * FROM `feature_product` WHERE `feature_product`.`fea_id` = $get";
+$run = mysqli_query($connect , $select);
+$fetch = mysqli_fetch_array($run);
+
 if (isset($_POST["f_add"])) {
     $name = $_POST["f_name"];
     $img_type = $_FILES["f_img"]["type"];
@@ -9,14 +14,15 @@ if (isset($_POST["f_add"])) {
         $img_name = $_FILES["f_img"]["name"];
         $target = "../img/" . basename($img_name);
         if (move_uploaded_file($_FILES["f_img"]["tmp_name"], $target)) {
-            $insert = "INSERT INTO `feature_product`( `fea_name`, `fea_img`) VALUES ('$name','$img_name')";
-            $run = mysqli_query($connect, $insert);
+            $update = "UPDATE `feature_product` SET `fea_name`='$name',`fea_img`='$img_name' WHERE `feature_product`.`fea_id` = $get";
+            $run = mysqli_query($connect, $update);
             if ($run) {
                 echo "
             <script>
-            alert('Add Successfully');
+            alert('Update Successfully');
             </script>
             ";
+            header("location:feature.php");
             }
         }
     }
@@ -133,46 +139,7 @@ if (isset($_POST["f_add"])) {
 
                 <!-- feature product -->
 
-                <div class="feature_product">
-                    <div class="feature_product_head">
-                        <h2>OUR FEATURE PRODUCTS</h2>
-                    </div>
-                    <div class="main_container_add">
-                        <button id="add_product">ADD PRODUCTS</button>
-                    </div>
-                    <div class="feature_container">
-
-                        <?php
-
-                        $select = "SELECT * FROM `feature_product`";
-                        $run = mysqli_query($connect, $select);
-                        while ($data = mysqli_fetch_array($run)) { ?>
-
-                            <div class="feature_card">
-                                <img src="../img/<?php echo $data["fea_img"]?>" alt="">
-                                <div class="feature_text">
-                                    <h3><?php echo $data["fea_name"]?></h3>
-                                    <div class="f_card_button">
-                                        <a href="feature_delete.php?delete=<?php echo $data['fea_id']?>" style="background: red;">Delete</a>
-                                        <a href="feature_update.php?update=<?php echo $data['fea_id']?>" style="background: rgba(255,150,0);">Update</a>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        <?php
-
-                        }
-
-                        ?>
-
-
-
-
-
-                    </div>
-                </div>
+           
 
             </div>
 
@@ -185,13 +152,13 @@ if (isset($_POST["f_add"])) {
     </div>
 
 
-    <div class="product_form" id="product_form">
+    <div class="product_form" id="product_form" style="display: block;left:50%;top:30%;">
         <form method="post" enctype="multipart/form-data">
             <div class="name">
-                <input type="text" name="f_name" placeholder="Enter Your Product Name">
+                <input type="text" name="f_name" value="<?php echo $fetch['fea_name']?>" placeholder="Enter Your Product Name">
             </div>
             <div class="name">
-                <input type="file" name="f_img">
+                <input type="file" name="f_img"  value="<?php echo $fetch['fea_img']?>">
             </div>
             <div class="form_btn">
                 <button name="f_add">Add</button>

@@ -2,28 +2,35 @@
 
 include("../connection.php");
 
-if (isset($_POST["f_add"])) {
-    $name = $_POST["f_name"];
-    $img_type = $_FILES["f_img"]["type"];
+$get = $_GET["update"];
+$select = "SELECT * FROM `sales_table` WHERE `sales_table`.`sales_id` = $get";
+$run = mysqli_query($connect , $select);
+$fetch = mysqli_fetch_array($run);
+if (isset($_POST["btn"])) {
+    $name = $_POST["name"];
+    $price = $_POST["price"];
+    $actual_price = $_POST["a_price"];
+    $img_type = $_FILES["img"]["type"];
     if (strtolower($img_type) == "image/png" || strtolower($img_type) == "image/jpg" || strtolower($img_type) == "image/jpeg") {
-        $img_name = $_FILES["f_img"]["name"];
+        $img_name = $_FILES["img"]["name"];
         $target = "../img/" . basename($img_name);
-        if (move_uploaded_file($_FILES["f_img"]["tmp_name"], $target)) {
-            $insert = "INSERT INTO `feature_product`( `fea_name`, `fea_img`) VALUES ('$name','$img_name')";
-            $run = mysqli_query($connect, $insert);
+        if (move_uploaded_file($_FILES['img']["tmp_name"], $target)) {
+            $update = "UPDATE `sales_table` SET `sales_name`='$name',`sales_img`='$img_name',`sales_price`='$price',`actual_price`='$actual_price' WHERE `sales_table`.`sales_id` = $get";
+            $run = mysqli_query($connect, $update);
+
             if ($run) {
-                echo "
-            <script>
-            alert('Add Successfully');
-            </script>
-            ";
+                echo ("
+                <script>
+                alert('Submit Successfull');
+                </script>
+                ");
+                header("location:sale.php");
             }
         }
     }
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,14 +39,13 @@ if (isset($_POST["f_add"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="dashcss/feature.css">
+    <link rel="stylesheet" href="dashcss/sale.css">
     <script src="https://kit.fontawesome.com/0962378758.js" crossorigin="anonymous"></script>
 
 <body>
 
 
     <div class="container">
-
         <!-- sidebar -->
 
         <div class="sidebar" id="sidebar">
@@ -133,46 +139,8 @@ if (isset($_POST["f_add"])) {
 
                 <!-- feature product -->
 
-                <div class="feature_product">
-                    <div class="feature_product_head">
-                        <h2>OUR FEATURE PRODUCTS</h2>
-                    </div>
-                    <div class="main_container_add">
-                        <button id="add_product">ADD PRODUCTS</button>
-                    </div>
-                    <div class="feature_container">
+              
 
-                        <?php
-
-                        $select = "SELECT * FROM `feature_product`";
-                        $run = mysqli_query($connect, $select);
-                        while ($data = mysqli_fetch_array($run)) { ?>
-
-                            <div class="feature_card">
-                                <img src="../img/<?php echo $data["fea_img"]?>" alt="">
-                                <div class="feature_text">
-                                    <h3><?php echo $data["fea_name"]?></h3>
-                                    <div class="f_card_button">
-                                        <a href="feature_delete.php?delete=<?php echo $data['fea_id']?>" style="background: red;">Delete</a>
-                                        <a href="feature_update.php?update=<?php echo $data['fea_id']?>" style="background: rgba(255,150,0);">Update</a>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        <?php
-
-                        }
-
-                        ?>
-
-
-
-
-
-                    </div>
-                </div>
 
             </div>
 
@@ -185,24 +153,35 @@ if (isset($_POST["f_add"])) {
     </div>
 
 
-    <div class="product_form" id="product_form">
+    <!-- add sales form -->
+
+    <div class="add_sales_form" id="add_sales_form" style="display: block;left:50%;top:30%;">
         <form method="post" enctype="multipart/form-data">
+
             <div class="name">
-                <input type="text" name="f_name" placeholder="Enter Your Product Name">
+                <input name="name" type="text" value="<?php echo $fetch['sales_name']?>" placeholder="Enter Product Name">
             </div>
             <div class="name">
-                <input type="file" name="f_img">
+                <input name="price" value="<?php echo $fetch['sales_price']?>" placeholder="Enter You Price">
             </div>
+            <div class="name">
+                <input name="a_price" value="<?php echo $fetch['actual_price']?>" placeholder="Enter You Acutal Price">
+            </div>
+            <div class="name">
+                <input name="img" value="<?php echo $fetch['sales_img']?>" type="file" placeholder="">
+            </div>
+
             <div class="form_btn">
-                <button name="f_add">Add</button>
+                <button name="btn">Add</button>
             </div>
+
+
         </form>
     </div>
 
 
 
-
-    <script src="dashjs/feature.js"></script>
+    <script src="dashjs/sale.js"></script>
 
 
 </body>
