@@ -1,6 +1,52 @@
 <?php 
 
 include("connection.php");
+session_start(); 
+
+if(isset($_POST["add_to"])){
+$id = $_POST["p_id"];
+$select = "SELECT * FROM `all_products` WHERE `a_p_id` = $id";
+$query = mysqli_query($connect , $select);
+$fetch = mysqli_fetch_array($query);
+$id = $fetch["a_p_id"];
+$name = $fetch["a_p_name"];
+$quanity = $fetch["quantity"];
+$img = $fetch["a_p_img"];
+
+
+$cartArray = array(
+    $name => array(
+    "a_p_id" => $id,
+    "name" => $name,
+    "quantity"=>$quanity,
+    "img" => $img
+
+    )
+    );
+
+    if(empty($_SESSION["shopping_cart"])){
+        $_SESSION["shopping_cart"] = $cartArray;
+	echo "<script>alert('Product is added to your cart!')</script>";
+
+    }else{
+        $arrey_key = array_keys($_SESSION["shopping_cart"]);
+        if (in_array($name, $arrey_key)) {
+            foreach( $_SESSION['shopping_cart'] as &$value) {
+        if($value["a_p_id"] === $_POST["p_id"]){
+            $value["quantity"] +=1 ;
+            echo "<script>alert('Quanity of this product in your cart is".$value['quantity']."')</script>";
+                break; // Stop the loop after we've found the product
+        }
+    }
+
+
+}else{
+    $_SESSION["shopping_cart"] = array_merge( $_SESSION["shopping_cart"], $cartArray);
+	echo "<script>alert('another Product is added to your cart!')</script>";
+    
+}
+    }
+}
 
 ?>
 
@@ -117,6 +163,7 @@ include("connection.php");
                             <div class="cart_item_text">
                                 <h4>Watch</h4>
                                 <p>$50</p>
+                                <input type="text" name="" id="">
                             </div>
                         </div>
                     </div>
@@ -165,16 +212,19 @@ $run = mysqli_query($connect , $select);
 while($fetch = mysqli_fetch_array($run)){?>
 
 <div class="p_card">
+    <form method="post">
                 <img src="img/<?php echo $fetch["a_p_img"]?>" alt="">
                 <div class="p_card_text">
+                <input type="text" name="p_id" value="<?php echo $fetch["a_p_id"]?>" id="">
                     <h3><?php echo $fetch["a_p_name"]?></h3>
                     <p><?php echo $fetch["a_p_descript"]?></p>
                     <div class="p_card_btn">
-                        <button>Add to Cart</button>
+                        <button name="add_to">Add to Cart</button>
                         <button>Watch More</button>
 
                     </div>
                 </div>
+                </form>
             </div>
 
 
