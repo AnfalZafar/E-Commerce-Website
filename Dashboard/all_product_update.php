@@ -9,6 +9,7 @@ $fetch = mysqli_fetch_array($run);
 
 if(isset($_POST["p_add"])) {
     $name = $_POST["p_name"];
+    $price = $_POST["p_price"];
     $title = $_POST["p_title"];
     $img_type = $_FILES["p_img"]["type"];
 
@@ -18,7 +19,7 @@ if(isset($_POST["p_add"])) {
         $target = "../img/" . basename($img_name);
 
         if (move_uploaded_file($_FILES["p_img"]["tmp_name"], $target)) {
-            $update = "UPDATE `all_products` SET `a_p_name`='$name',`a_p_img`='$img_name',`a_p_descript`='$title' WHERE `all_products`.`a_p_id` = $get";
+            $update = "UPDATE `all_products` SET `a_p_name`='$name',`a_p_img`='$img_name',`a_p_price`='$price',`a_p_descript`='$title' WHERE `all_products`.`a_p_id` = $get";
             $ru = mysqli_query($connect, $update);
             if ($ru) {
                 echo "
@@ -171,6 +172,9 @@ if(isset($_POST["p_add"])) {
             <form method="post" enctype="multipart/form-data">
                 <div class="name">
                     <input type="text" name="p_name" placeholder="Enter Your Product Name" value="<?php echo $fetch["a_p_name"] ?>">
+                </div>
+                <div class="name">
+                    <input type="text" name="p_price" placeholder="Enter Your Price" value="<?php echo $fetch["a_p_price"] ?>">
                 </div>
                 <div class="name">
                     <input type="text" name="p_title" placeholder="Enter Your Product Name" value="<?php echo $fetch["a_p_descript"] ?>">

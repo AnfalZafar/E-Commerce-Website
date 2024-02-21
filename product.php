@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+use function PHPSTORM_META\elementType;
 
 include("connection.php");
 session_start(); 
@@ -10,7 +12,7 @@ $query = mysqli_query($connect , $select);
 $fetch = mysqli_fetch_array($query);
 $id = $fetch["a_p_id"];
 $name = $fetch["a_p_name"];
-$quanity = $fetch["quantity"];
+$price = $fetch['a_p_price'];
 $img = $fetch["a_p_img"];
 
 
@@ -18,9 +20,9 @@ $cartArray = array(
     $name => array(
     "a_p_id" => $id,
     "name" => $name,
-    "quantity"=>$quanity,
+    "price" => $price,
+    "quantity"=> 1,
     "img" => $img
-
     )
     );
 
@@ -30,7 +32,7 @@ $cartArray = array(
 
     }else{
         $arrey_key = array_keys($_SESSION["shopping_cart"]);
-        if (in_array($name, $arrey_key)) {
+        if (in_array($name, $arrey_key)) { // if in shoping cart this name is exist
             foreach( $_SESSION['shopping_cart'] as &$value) {
         if($value["a_p_id"] === $_POST["p_id"]){
             $value["quantity"] +=1 ;
@@ -42,7 +44,7 @@ $cartArray = array(
 
 }else{
     $_SESSION["shopping_cart"] = array_merge( $_SESSION["shopping_cart"], $cartArray);
-	echo "<script>alert('another Product is added to your cart!')</script>";
+	echo "<script>alert('Another Product is added to your cart!')</script>";
     
 }
     }
@@ -146,7 +148,15 @@ $cartArray = array(
 
                 <div class="my_cart">
                     <ul class="my_cart_li" id="cart_click">
-                        <span>5</span>
+                        <?php 
+                        if(!empty($_SESSION["shopping_cart"])){
+                            $count = count(array_keys( $_SESSION["shopping_cart"]));
+                        }else{
+                            $count = 0;
+                        }                      
+                        
+                        ?>
+                        <span><?php echo $count?></span>
                         <li class="bag_li"><i class="fa-solid fa-sack-dollar"></i></li>
                     </ul>
                 </div>
@@ -157,16 +167,48 @@ $cartArray = array(
                     <div class="cart_head">
                         <h3>MY CART</h3>
                     </div>
-                    <div class="cart_container">
+                    <?php
+                    
+                    if(isset($_SESSION["shopping_cart"])){
+                        $total_price = 0;
+                    }
+                    ?>
+                    <?php
+                    if(!empty($_SESSION["shopping_cart"])){
+                    foreach($_SESSION["shopping_cart"] as $product){
+                        ?>
+                        <div class="cart_container">
                         <div class="cart_item">
-                            <img src="img/watch1.webp" alt="">
+                            <img src="<?php echo $product["img"]?>" alt="">
                             <div class="cart_item_text">
-                                <h4>Watch</h4>
-                                <p>$50</p>
-                                <input type="text" name="" id="">
+                                <h4><?php echo $product["name"]?></h4>
+                                <p><?php echo "$".$product["price"]?></p>
+                                <input type="text" value="<?php echo $product["quantity"]?>" name="" id="">
+                                <form action="cart_remove.php" method="post">
+                                    <td>
+                                        <input type="hidden" name="r_id" value="<?php echo $product["a_p_id"]?>">
+                                        <button name="remove">Remove</button>
+                                    </td>
+                                </form>
                             </div>
                         </div>
                     </div>
+                    <?php
+                    }
+                }
+                else{
+?>
+
+                    <div class="cart_container">
+                        <h4>Your Cart Is Empty</h4>
+                            
+                   
+                        </div>
+<?php
+                }
+                    
+                    ?>
+                   
                     <div class="cart_button">
                         <button>CHEAK OUT</button>
                         <button>VIEW CART</button>
@@ -215,8 +257,9 @@ while($fetch = mysqli_fetch_array($run)){?>
     <form method="post">
                 <img src="img/<?php echo $fetch["a_p_img"]?>" alt="">
                 <div class="p_card_text">
-                <input type="text" name="p_id" value="<?php echo $fetch["a_p_id"]?>" id="">
+                <input type="hidden" name="p_id" value="<?php echo $fetch["a_p_id"]?>" id="">
                     <h3><?php echo $fetch["a_p_name"]?></h3>
+                    <p><?php echo $fetch["a_p_price"]?></p>
                     <p><?php echo $fetch["a_p_descript"]?></p>
                     <div class="p_card_btn">
                         <button name="add_to">Add to Cart</button>

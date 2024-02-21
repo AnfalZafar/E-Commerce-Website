@@ -5,6 +5,7 @@ include("../connection.php");
 if (isset($_POST["p_add"])) {
 
     $name = $_POST["p_name"];
+    $price = $_POST["p_price"];
     $title = $_POST["p_title"];
     $foren = $_POST["id"];
     $img_type = $_FILES["p_img"]["type"];
@@ -12,7 +13,7 @@ if (isset($_POST["p_add"])) {
         $img_name = $_FILES["p_img"]["name"];
         $target = "../img/" . basename($img_name);
         if (move_uploaded_file($_FILES["p_img"]["tmp_name"], $target)) {
-            $insert = "INSERT INTO `all_products`( `a_p_name`, `a_p_img`,`a_p_descript`,`product_foren`) VALUES ('$name','$img_name','$title','$foren')";
+            $insert = "INSERT INTO `all_products`( `a_p_name`, `a_p_img`,`a_p_price`,`a_p_descript`,`product_foren`) VALUES ('$name','$img_name','$price','$title','$foren')";
             $run = mysqli_query($connect, $insert);
             if ($run) {
                 echo "
@@ -155,6 +156,8 @@ if (isset($_POST["p_add"])) {
                                 <div class="p_card_text">
                                     <h3><?php echo $row["a_p_name"] ?></h3>
                                     <p><?php echo $row["a_p_descript"] ?>
+                                    <p><?php echo $row["a_p_price"] ?>
+
                                     </p>
                                     <div class="p_card_button">
                                         <a href="all_product_delete.php?delete=<?php echo $row["a_p_id"] ?>" style="background: red;">Delete</a>
@@ -194,6 +197,9 @@ if (isset($_POST["p_add"])) {
             <div class="name">
                 <input type="text" name="p_name" placeholder="Enter Your Product Name">
             </div>
+            <div class="name">
+            <input type="text" name="p_price" placeholder="Enter Your Price">
+        </div>
             <div class="name">
                 <input type="text" name="p_title" placeholder="Enter Your Product Title">
             </div>

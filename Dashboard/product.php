@@ -190,6 +190,7 @@ while($row = mysqli_fetch_array($run)){?>
         <div class="name">
             <input type="text" name="p_name" placeholder="Enter Your Product Name">
         </div>
+      
         <div class="name">
             <input type="file" name="p_img">
         </div>
