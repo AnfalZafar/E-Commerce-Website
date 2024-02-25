@@ -22,7 +22,7 @@ $cartArray = array(
     "name" => $name,
     "price" => $price,
     "quantity"=> 1,
-    "img" => $img
+    "img" => $img,
     )
     );
 
@@ -38,7 +38,10 @@ $cartArray = array(
             $value["quantity"] +=1 ;
             echo "<script>alert('Quanity of this product in your cart is".$value['quantity']."')</script>";
                 break; // Stop the loop after we've found the product
-        }
+        }else if($value["a_p_id"] !=  $_POST["p_id"]){
+            $value["quantity"] += 1;
+            echo("<script>alert('Done')</script>");
+        }// If
     }
 
 
@@ -179,11 +182,11 @@ $cartArray = array(
                         ?>
                         <div class="cart_container">
                         <div class="cart_item">
-                            <img src="<?php echo $product["img"]?>" alt="">
+                            <img src="img/<?php echo $product["img"]?>" alt="">
                             <div class="cart_item_text">
                                 <h4><?php echo $product["name"]?></h4>
                                 <p><?php echo "$".$product["price"]?></p>
-                                <input type="text" value="<?php echo $product["quantity"]?>" name="" id="">
+                                <input type="hidden" value="<?php echo $product["quantity"]?>" name="" id="">
                                 <form action="cart_remove.php" method="post">
                                     <td>
                                         <input type="hidden" name="r_id" value="<?php echo $product["a_p_id"]?>">
@@ -211,7 +214,7 @@ $cartArray = array(
                    
                     <div class="cart_button">
                         <button>CHEAK OUT</button>
-                        <button>VIEW CART</button>
+                       <a href="view_cart.php"><button>VIEW CART</button></a>
 
                     </div>
                 </div>
